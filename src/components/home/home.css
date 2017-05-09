@@ -4,6 +4,10 @@ html, body {
   padding: 0;
 }
 
+.navbar {
+  margin-bottom: 0;
+}
+
 .jumbotron {
   background-image: url(../../images/redsky.JPG);
   background-size: cover;

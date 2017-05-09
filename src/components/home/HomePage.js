@@ -1,17 +1,17 @@
 import React from 'react';
 import {Link} from 'react-router';
-import { Grid, Row, Col, Jumbotron, Button, Thumbnail } from 'react-bootstrap';
+import { Grid, Row, Col, Jumbotron, Button, Thumbnail, Nav } from 'react-bootstrap';
 
 import './home.css'
 
 class HomePage extends React.Component {
     render() {
         return (
-          <div className = "container">
+          <div>
               <Jumbotron>
                 <div className="container">
                     <h1 className="headline">Compatible Groups</h1>
-                    <p>Search or post tee times to form groups based on your preferences.</p>
+                    <p>Search or post tee times to play with golfers based on preferences.</p>
                </div>
               </Jumbotron>
               <Grid>
@@ -41,13 +41,13 @@ class HomePage extends React.Component {
                         <li>Contact accepted group member to confirm addition to course tee time</li>
                       </ul>
                     <p>
-                      <Button bsStyle="primary">Button</Button>&nbsp;
-                      <Button bsStyle="default">Button</Button>
+                      <Button bsStyle="primary">Post</Button>
                     </p>
                   </Thumbnail>
                 </Col>
                 </Row>
             </Grid>
+            
           </div>
         );
     }
