@@ -3,7 +3,7 @@ import React from 'react';
 import './post.css'
 
 
-class CoursesPage extends React.Component {
+class PostPage extends React.Component {
     render() {
         return (
           <div className="container">
@@ -13,4 +13,4 @@ class CoursesPage extends React.Component {
     }
 }
 
-export default CoursesPage;
+export default PostPage;

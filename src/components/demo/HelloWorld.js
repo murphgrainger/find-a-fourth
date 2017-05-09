@@ -8,7 +8,6 @@ class HelloWorld extends Component {
   this.state = { greeting: 'Hello' };
   this.frenchify = this.frenchify.bind(this);
   this.removeGreeting = this.removeGreeting.bind(this);
-
 }
 
 removeGreeting() {
