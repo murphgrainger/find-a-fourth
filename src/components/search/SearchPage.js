@@ -47,6 +47,7 @@ class SearchPage extends React.Component {
       }).then(data => {
         console.log(data);
         this.setState({ posts: [...this.state.posts, ...data] });
+        console.log(this.state.posts);
       })
     }
 
@@ -54,7 +55,7 @@ class SearchPage extends React.Component {
       return this.state.posts.map(post => (
         <CourseCard
           key={post.id}
-          name={post}
+          post={post}
         />
       ));
     }
