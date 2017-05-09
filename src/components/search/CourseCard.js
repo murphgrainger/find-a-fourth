@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './HelloWorld.css';
+import './card.css';
 
-class HelloWorld extends Component {
-
+class CourseCard extends Component {
   constructor(props) {
   super(props);
   this.state = { greeting: 'Hello' };
@@ -20,11 +19,10 @@ this.setState({ greeting: 'Bonjour' });
 
   render() {
     return (
-      <div className="HelloWorld">
-      {this.state.greeting} {this.props.name}!
+      <div className="CourseCard">
+      {this.props.name.course_name}!
       <br/>
-      <button onClick={this.frenchify}>Frenchify!</button>
-      <button onClick={this.removeGreeting}>Remove Me!</button>
+      <button onClick={this.frenchify}>Join Group</button>
       </div>
     );
   }
@@ -32,4 +30,4 @@ this.setState({ greeting: 'Bonjour' });
 
 
 
-export default HelloWorld;
+export default CourseCard;
