@@ -6,21 +6,22 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+
 import './index.css';
+
+import Header from './components/common/Header';
+
+import Home from './components/home/HomePage';
+import About from './components/about/AboutPage';
+
 
 ReactDOM.render(
   <Router>
     <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-      </ul>
-
-      <hr/>
-
+      <Header />
       <Route exact path="/" component={Home}/>
       <Route path="/about" component={About}/>
     </div>
-  </Router>
+  </Router>,
   document.getElementById('root')
 );

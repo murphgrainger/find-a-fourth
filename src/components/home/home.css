@@ -1,0 +1,45 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  color: #283120;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(../../images/redsky.JPG);
+  background-size: cover;
+  background-position: 0 70%;
+}
+
+.logo {
+  padding-left: 1em;
+}
+
+.jumbotron {
+  height: 100vh;
+}
+
+/*.paper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 3em;
+  width: 100%;
+  height: 75vh;
+  opacity: .85;
+  padding-left: 3em;
+}*/
+
+.headline {
+  font-size: 4em;
+  margin: 0;
+}
+
+.list-items {
+  padding: 1em;
+}
+
+.list-items li {
+  list-style: none;
+  font-size: 1.5em;
+}
