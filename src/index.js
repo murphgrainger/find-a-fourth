@@ -11,8 +11,8 @@ import './index.css';
 
 import Header from './components/common/Header';
 import Home from './components/home/HomePage';
-import About from './components/about/AboutPage';
-import Courses from './components/courses/CoursesPage';
+import Search from './components/search/SearchPage';
+import Post from './components/post/PostPage';
 import Profile from './components/profile/ProfilePage';
 
 ReactDOM.render(
@@ -20,9 +20,9 @@ ReactDOM.render(
     <div>
       <Header />
       <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
       <Route path="/profile" component={Profile}/>
-      <Route path="/courses" component={Courses}/>
+      <Route path="/search" component={Search}/>
+      <Route path="/post" component={Post}/>
     </div>
   </Router>,
   document.getElementById('root')

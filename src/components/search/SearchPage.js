@@ -1,13 +1,13 @@
 import React from 'react';
 
-import './courses.css'
+import './search.css'
 
 
 class CoursesPage extends React.Component {
     render() {
         return (
           <div className="container">
-            <h1>Search Courses</h1>
+            <h1>Search for Tee Times</h1>
           </div>
         );
     }

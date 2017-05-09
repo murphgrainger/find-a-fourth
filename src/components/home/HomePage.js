@@ -27,7 +27,7 @@ class HomePage extends React.Component {
                       <li>Age or Gender</li>
                     </ul>
                     <p>
-                      <Button bsStyle="primary">Search</Button>
+                      <Button bsStyle="primary" href="/search">Search</Button>
                     </p>
                   </Thumbnail>
                 </Col>
@@ -41,13 +41,13 @@ class HomePage extends React.Component {
                         <li>Contact accepted group member to confirm addition to course tee time</li>
                       </ul>
                     <p>
-                      <Button bsStyle="primary">Post</Button>
+                      <Button bsStyle="primary" href="/post">Post</Button>
                     </p>
                   </Thumbnail>
                 </Col>
                 </Row>
             </Grid>
-            
+
           </div>
         );
     }
