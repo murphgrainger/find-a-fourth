@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-  background-image: url(../../images/redsky.JPG);
+  /*background-image: url(../../images/redsky.JPG);*/
   background-size: cover;
   background-position: 0 70%;
 }

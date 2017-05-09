@@ -10,10 +10,10 @@ import {
 import './index.css';
 
 import Header from './components/common/Header';
-
 import Home from './components/home/HomePage';
 import About from './components/about/AboutPage';
-
+import Courses from './components/courses/CoursesPage';
+import Profile from './components/profile/ProfilePage';
 
 ReactDOM.render(
   <Router>
@@ -21,6 +21,8 @@ ReactDOM.render(
       <Header />
       <Route exact path="/" component={Home}/>
       <Route path="/about" component={About}/>
+      <Route path="/profile" component={Profile}/>
+      <Route path="/courses" component={Courses}/>
     </div>
   </Router>,
   document.getElementById('root')
