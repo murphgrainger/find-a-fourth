@@ -11,13 +11,15 @@ class SearchPage extends React.Component {
   this.getCourse = this.getCourse.bind(this);
 }
 
+
+
 getCourse() {
-  let url = 'http://localhost:4000/fourth'
+  let url = 'http://localhost:4000/swingAPI'
   fetch(url, {
 	method: 'get',
   mode:'cors'
 }).then(response => {
-return response.text()
+return response.json()
   }).then(data => {
   console.log(data)
 })
