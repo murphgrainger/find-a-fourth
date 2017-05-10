@@ -2,3 +2,18 @@
 body {
   min-height: 100vh;
 }
+
+.form-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 80%;
+}
+
+.inline-formgroup {
+  display: flex;
+  flex-direction: row;
+}
