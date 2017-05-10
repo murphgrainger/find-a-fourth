@@ -26,6 +26,9 @@ this.setState({ greeting: 'Bonjour' });
               <p>{this.props.post.date} at {this.props.post.time}</p>
               <p>Greens Fee: ${this.props.post.cost}</p>
               <p>{this.props.post.group_count} Players</p>
+              <p>Age Range: {this.props.post.age_range}</p>
+              <p>Handicap Range: {this.props.post.handicap_range}</p>
+              <p>Gender: {this.props.post.gender}</p>
               <p>
                 <Button bsStyle="success" onClick={this.frenchify}>Request to Join</Button>&nbsp;
               </p>

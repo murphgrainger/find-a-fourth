@@ -15,11 +15,14 @@ class SearchPage extends React.Component {
   this.getPosts = this.getPosts.bind(this);
 }
 
+componentDidMount() {
+  this.getPosts()
+}
+
     render() {
         return (
           <div className="container">
             <h1>Join a Group</h1>
-            <Button bsStyle="primary" onClick={this.getPosts}>Get Posts</Button>
             {this.renderPosts()}
           </div>
         );
@@ -45,7 +48,6 @@ class SearchPage extends React.Component {
       }).then(res => {
         return res.json()
       }).then(data => {
-        console.log(data);
         this.setState({ posts: [...this.state.posts, ...data] });
         console.log(this.state.posts);
       })
