@@ -124,29 +124,25 @@ handleChange(date) {
               </FormGroup>
               <p className="label">Gender Preference</p>
                     <FormGroup id="radio-group">
-                      <Radio name="Male" inline>
+                      <Radio name="genderGroup" value="any" inline>
+                        Any
+                      </Radio>
+                      <Radio name="genderGroup" value="male" inline>
                         Male
                       </Radio>
-                      {' '}
-                      <Radio name="Female" inline>
+                      <Radio name="genderGroup" value="female" inline>
                         Female
-                      </Radio>
-                      {' '}
-                      <Radio name="Either" inline>
-                        Either
                       </Radio>
                     </FormGroup>
                     <p className="label">Current Group Size</p>
                           <FormGroup id="radio-group">
-                            <Radio name="one" inline>
+                            <Radio name="radioGroup" inline>
                               1
                             </Radio>
-                            {' '}
-                            <Radio name="two" inline>
+                            <Radio name="radioGroup" inline>
                               2
                             </Radio>
-                            {' '}
-                            <Radio name="three" inline>
+                            <Radio name="radioGroup" inline>
                               3
                             </Radio>
                           </FormGroup>

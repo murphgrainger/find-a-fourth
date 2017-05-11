@@ -76,5 +76,10 @@ form h2 {
 }
 
 .radio-inline {
-  padding-left: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.radio-inline input {
+  background-color: black;
 }
