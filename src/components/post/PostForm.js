@@ -57,16 +57,17 @@ class PostForm extends React.Component {
   constructor(props) {
   super(props);
   this.state = {
-    startDate: moment()
+    startDate: moment(),
+    ageRange: [25, 45],
+    handicapRange: [10, 20]
+    gender: ['male', 'female', 'any']
 };
   this.timeReformat = this.timeReformat.bind(this);
   this.timeValues = this.timeValues.bind(this)
   this.handicapValues = this.handicapValues.bind(this)
   this.ageValues = this.ageValues.bind(this)
-  this.distanceValues = this.distanceValues.bind(this)
   this.handleChange = this.handleChange.bind(this)
-
-
+  this.formSubmit = this.formSubmit.bind(this)
 }
 
 timeReformat(int) {
@@ -78,15 +79,15 @@ timeValues(arrVals) {
 }
 
 handicapValues(arrVals) {
-  console.log(arrVals);
+  this.setState({
+    handicapRange: arrVals
+  });
 }
 
 ageValues(arrVals) {
-  console.log(arrVals);
-}
-
-distanceValues(arrVals) {
-  console.log(arrVals);
+  this.setState({
+    ageRange: arrVals
+  });
 }
 
 handleChange(date) {
@@ -95,60 +96,70 @@ handleChange(date) {
   });
 }
 
+formSubmit(e) {
+  e.preventDefault()
+    this.setState({
+      startDate: this.state.startDate,
+      ageRange: this.state.ageRange,
+      handicapRange: this.handicapRange
+    });
+    console.log(this.state);
+}
+
     render() {
         return (
           <div className="container">
             <Grid>
             <Row className="form-holder">
-            <form>
+            <form onSubmit={this.formSubmit}>
               <h2>Select Group Preferences</h2>
-              <p className="label">Date</p>
+              <p className="label">Available Date</p>
               <FormGroup id="date-container">
-              <DatePicker
-                    selected={this.state.startDate}
-                    onChange={this.handleChange}
-                    className="date-picker"
-                    />
-            </FormGroup>
+                <DatePicker
+                  selected={this.state.startDate}
+                  onChange={this.handleChange}
+                  className="date-picker"
+                  />
+              </FormGroup>
               <p className="label">Handicap Range</p>
-                  <FormGroup>
-                    <div className="slider">
-                    <Range min={0} max={40} defaultValue={[10, 20]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
-                  </div>
-                </FormGroup>
+              <FormGroup>
+                <div className="slider">
+                  <Range min={0} max={40} defaultValue={[10, 20]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
+                </div>
+              </FormGroup>
                 <p className="label">Age Range</p>
-                <FormGroup>
-                  <div className="slider">
+              <FormGroup>
+                <div className="slider">
                   <Range min={17} max={75} defaultValue={[25, 45]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
               <p className="label">Gender Preference</p>
-                    <FormGroup id="radio-group">
-                      <Radio name="genderGroup" value="any" inline>
-                        Any
-                      </Radio>
-                      <Radio name="genderGroup" value="male" inline>
-                        Male
-                      </Radio>
-                      <Radio name="genderGroup" value="female" inline>
-                        Female
-                      </Radio>
-                    </FormGroup>
-                    <p className="label">Current Group Size</p>
-                          <FormGroup id="radio-group">
-                            <Radio name="radioGroup" inline>
-                              1
-                            </Radio>
-                            <Radio name="radioGroup" inline>
-                              2
-                            </Radio>
-                            <Radio name="radioGroup" inline>
-                              3
-                            </Radio>
-                          </FormGroup>
-                <Button type="submit" bsStyle="success">
-                  Next
-                </Button>
+              <FormGroup id="radio-group">
+                <Radio name="genderGroup" value="any" inline>
+                  Any
+                </Radio>
+                <Radio name="genderGroup" value="male" inline>
+                  Male
+                </Radio>
+                <Radio name="genderGroup" value="female" inline>
+                  Female
+                </Radio>
+              </FormGroup>
+              <p className="label">Current Group Size</p>
+              <FormGroup id="radio-group">
+                <Radio name="radioGroup" inline>
+                  1
+                </Radio>
+                <Radio name="radioGroup" inline>
+                  2
+                </Radio>
+                <Radio name="radioGroup" inline>
+                  3
+                </Radio>
+              </FormGroup>
+              <Button type="submit" bsStyle="success">
+                Next
+              </Button>
               </form>
             </Row>
           </Grid>
