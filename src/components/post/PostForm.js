@@ -31,6 +31,32 @@ const handle = (props) => {
 
 const wrapperStyle = { width: 400, margin: 50 };
 
+const timeMarks = {
+  6: <strong>6am</strong>,
+  8: '8am',
+  10: '10am',
+  12: '12pm',
+  14: '2pm',
+  16: <strong>4pm</strong>,
+};
+
+const handicapMarks = {
+  0: <strong>0</strong>,
+  10: '10',
+  20: '20',
+  30: '30',
+  40: <strong>40</strong>,
+};
+
+const ageMarks = {
+  17: <strong>17</strong>,
+  25: '25',
+  35: '35',
+  45: '45',
+  55: '55',
+  65: '65',
+  75: <strong>75</strong>,
+};
 
 class PostForm extends React.Component {
 
@@ -38,11 +64,28 @@ class PostForm extends React.Component {
   super(props);
   this.state = {};
   this.timeReformat = this.timeReformat.bind(this);
+  this.timeValues = this.timeValues.bind(this)
+  this.handicapValues = this.handicapValues.bind(this)
+  this.ageValues = this.ageValues.bind(this)
+
 }
 
 timeReformat(int) {
   return moment(int, 'HH').format('ha')
 }
+
+timeValues(arrVals) {
+  console.log(arrVals);
+}
+
+handicapValues(arrVals) {
+  console.log(arrVals);
+}
+
+ageValues(arrVals) {
+  console.log(arrVals);
+}
+
     render() {
         return (
           <div className="container">
@@ -52,7 +95,6 @@ timeReformat(int) {
               <Row>
               <Col xs={10} sm={10} md={5}>
                 <h3>Tee Time Information</h3>
-                <h2>Moment JS Test: {this.timeReformat(2)}</h2>
               <FormGroup>
               <FormControl
                 type="text"
@@ -163,7 +205,19 @@ timeReformat(int) {
                 <FormGroup>
                   <div style={wrapperStyle}>
                     <p>Start Time</p>
-                    <Range min={6} max={18.5} defaultValue={[9, 15]} tipFormatter={value => `${this.timeReformat(value)}`} />
+                    <Range min={6} max={16} defaultValue={[9, 16]} marks={timeMarks} onAfterChange={this.timeValues}	tipFormatter={value => `${this.timeReformat(value)}`} />
+                    </div>
+                  </FormGroup>
+                    <FormGroup>
+                      <div style={wrapperStyle}>
+                      <p>Handicap Range</p>
+                      <Range min={0} max={40} defaultValue={[10, 20]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
+                    </div>
+                  </FormGroup>
+                  <FormGroup>
+                    <div style={wrapperStyle}>
+                    <p>Age Range</p>
+                    <Range min={17} max={75} defaultValue={[25, 45]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                   </div>
                 </FormGroup>
               </Row>
