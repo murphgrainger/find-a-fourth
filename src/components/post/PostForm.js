@@ -37,6 +37,11 @@ class PostForm extends React.Component {
   constructor(props) {
   super(props);
   this.state = {};
+  this.timeReformat = this.timeReformat.bind(this);
+}
+
+timeReformat(int) {
+  return moment(int, 'HH').format('ha')
 }
     render() {
         return (
@@ -47,6 +52,7 @@ class PostForm extends React.Component {
               <Row>
               <Col xs={10} sm={10} md={5}>
                 <h3>Tee Time Information</h3>
+                <h2>Moment JS Test: {this.timeReformat(2)}</h2>
               <FormGroup>
               <FormControl
                 type="text"
@@ -157,7 +163,7 @@ class PostForm extends React.Component {
                 <FormGroup>
                   <div style={wrapperStyle}>
                     <p>Start Time</p>
-                    <Range min={6} max={18.5} defaultValue={[9, 15]} tipFormatter={value => `${value}`} />
+                    <Range min={6} max={18.5} defaultValue={[9, 15]} tipFormatter={value => `${this.timeReformat(value)}`} />
                   </div>
                 </FormGroup>
               </Row>
