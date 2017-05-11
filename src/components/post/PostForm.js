@@ -1,15 +1,24 @@
 import React from 'react';
 
 import './post.css'
+import 'rc-time-picker/assets/index.css';
 
 import { Grid, Row, Col, Form, FieldGroup, Checkbox, Radio, FormControl, Button, FormGroup, ControlLabel } from 'react-bootstrap';
+import TimePicker from 'rc-time-picker';
+// import ReactDOM from 'react-dom';
 
+import moment from 'moment';
+const format = 'h:mm a';
+
+const now = moment().hour(0).minute(0);
 
 class PostForm extends React.Component {
 
   constructor(props) {
   super(props);
   this.state = {};
+  this.onChange = this.onChange.bind(this);
+  console.log(now)
 
 }
     render() {
@@ -128,6 +137,16 @@ class PostForm extends React.Component {
                 <Button type="submit" bsStyle="success">
                   Post
                 </Button>
+                <FormGroup>
+                <TimePicker
+                  showSecond={false}
+                  defaultValue={moment(9, "HH")}
+                  className="xxx"
+                  onChange={this.onChange}
+                  format={format}
+                  use12Hours
+                />
+              </FormGroup>
               </Row>
               </form>
             </Row>
@@ -135,6 +154,10 @@ class PostForm extends React.Component {
           </div>
         );
     }
+
+ onChange(value) {
+  console.log(value && value.format(format));
+}
 }
 
 export default PostForm;
