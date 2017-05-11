@@ -7,7 +7,6 @@ class PostPage extends React.Component {
     render() {
         return (
           <div className="container">
-            <h1>Post a Tee Time</h1>
             <PostForm />
           </div>
         );

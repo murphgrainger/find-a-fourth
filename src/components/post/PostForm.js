@@ -34,17 +34,6 @@ const handle = (props) => {
   );
 };
 
-const wrapperStyle = { width: 300, 'margin-top': 50, 'margin-bottom': 50 };
-
-const timeMarks = {
-  6: <strong>6am</strong>,
-  8: '8am',
-  10: '10am',
-  12: '12pm',
-  14: '2pm',
-  16: <strong>4pm</strong>,
-};
-
 const handicapMarks = {
   0: <strong>0</strong>,
   10: '10',
@@ -61,14 +50,6 @@ const ageMarks = {
   55: '55',
   65: '65',
   75: <strong>75</strong>,
-};
-
-const distanceMarks = {
-  5: <strong>5mi</strong>,
-  20: '20mi',
-  35: '35mi',
-  55: '55mi',
-  75: <strong>75mi</strong>,
 };
 
 class PostForm extends React.Component {
@@ -118,49 +99,31 @@ handleChange(date) {
         return (
           <div className="container">
             <Grid>
-              <Row className="form-holder">
+            <Row className="form-holder">
             <form>
-              <Row>
-              <Col xs={10} sm={10} md={5}>
-              <FormGroup>
-                <p>Date</p>
+              <h2>Select Group Preferences</h2>
+              <p className="label">Date</p>
+              <FormGroup id="date-container">
               <DatePicker
                     selected={this.state.startDate}
                     onChange={this.handleChange}
+                    className="date-picker"
                     />
             </FormGroup>
-            <FormGroup>
-              <FormControl type="integer" placeholder="Zip Code" />
-          </FormGroup>
-          <FormGroup>
-            <div style={wrapperStyle}>
-              <p>Travel Distance</p>
-              <Range min={5} max={75} defaultValue={[5, 20]} marks={distanceMarks} onAfterChange={this.distanceValues}	tipFormatter={value => `${value}`} />
-              </div>
-            </FormGroup>
-            <FormGroup>
-              <div style={wrapperStyle}>
-                <p>Start Time</p>
-                <Range min={6} max={16} defaultValue={[9, 16]} marks={timeMarks} onAfterChange={this.timeValues}	tipFormatter={value => `${this.timeReformat(value)}`} />
-                </div>
-              </FormGroup>
-          </Col>
-          <Col xs={10} sm={10} md={5}>
-            <h3>Group Preferences</h3>
+              <p className="label">Handicap Range</p>
                   <FormGroup>
-                    <div style={wrapperStyle}>
-                    <p>Handicap Range</p>
+                    <div className="slider">
                     <Range min={0} max={40} defaultValue={[10, 20]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
                   </div>
                 </FormGroup>
+                <p className="label">Age Range</p>
                 <FormGroup>
-                  <div style={wrapperStyle}>
-                  <p>Age Range</p>
+                  <div className="slider">
                   <Range min={17} max={75} defaultValue={[25, 45]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
-                    <p>Gender Preference</p>
-                    <FormGroup>
+              <p className="label">Gender Preference</p>
+                    <FormGroup id="radio-group">
                       <Radio name="Male" inline>
                         Male
                       </Radio>
@@ -173,14 +136,23 @@ handleChange(date) {
                         Either
                       </Radio>
                     </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
+                    <p className="label">Current Group Size</p>
+                          <FormGroup id="radio-group">
+                            <Radio name="one" inline>
+                              1
+                            </Radio>
+                            {' '}
+                            <Radio name="two" inline>
+                              2
+                            </Radio>
+                            {' '}
+                            <Radio name="three" inline>
+                              3
+                            </Radio>
+                          </FormGroup>
                 <Button type="submit" bsStyle="success">
-                  Post
+                  Next
                 </Button>
-
-              </Row>
               </form>
             </Row>
           </Grid>
