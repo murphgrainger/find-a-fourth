@@ -1,8 +1,35 @@
 import React from 'react';
 
 import './post.css'
+import 'rc-slider/assets/index.css';
+
 
 import { Grid, Row, Col, Form, FieldGroup, Checkbox, Radio, FormControl, Button, FormGroup, ControlLabel } from 'react-bootstrap';
+
+import Tooltip from 'rc-tooltip';
+import Slider from 'rc-slider';
+import moment from 'moment'
+
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const Range = createSliderWithTooltip(Slider.Range);
+const Handle = Slider.Handle;
+
+const handle = (props) => {
+  const { value, dragging, index, ...restProps } = props;
+  return (
+    <Tooltip
+      prefixCls="rc-slider-tooltip"
+      overlay={value}
+      visible={dragging}
+      placement="top"
+      key={index}
+    >
+      <Handle {...restProps} />
+    </Tooltip>
+  );
+};
+
+const wrapperStyle = { width: 400, margin: 50 };
 
 
 class PostForm extends React.Component {
@@ -10,7 +37,6 @@ class PostForm extends React.Component {
   constructor(props) {
   super(props);
   this.state = {};
-
 }
     render() {
         return (
@@ -128,6 +154,12 @@ class PostForm extends React.Component {
                 <Button type="submit" bsStyle="success">
                   Post
                 </Button>
+                <FormGroup>
+                  <div style={wrapperStyle}>
+                    <p>Start Time</p>
+                    <Range min={6} max={18.5} defaultValue={[9, 15]} tipFormatter={value => `${value}`} />
+                  </div>
+                </FormGroup>
               </Row>
               </form>
             </Row>
