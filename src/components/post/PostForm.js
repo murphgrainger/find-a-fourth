@@ -59,8 +59,9 @@ class PostForm extends React.Component {
   this.state = {
     startDate: moment(),
     ageRange: [25, 45],
-    handicapRange: [10, 20]
-    gender: ['male', 'female', 'any']
+    handicapRange: [10, 20],
+    genderGroup: ['male', 'female', 'any'],
+    sizeGroup: [1, 2, 3]
 };
   this.timeReformat = this.timeReformat.bind(this);
   this.timeValues = this.timeValues.bind(this)
@@ -101,7 +102,9 @@ formSubmit(e) {
     this.setState({
       startDate: this.state.startDate,
       ageRange: this.state.ageRange,
-      handicapRange: this.handicapRange
+      handicapRange: this.handicapRange,
+      genderGroup: this.genderGroup,
+      sizeGroup: this.sizeGroup
     });
     console.log(this.state);
 }
@@ -147,13 +150,13 @@ formSubmit(e) {
               </FormGroup>
               <p className="label">Current Group Size</p>
               <FormGroup id="radio-group">
-                <Radio name="radioGroup" inline>
+                <Radio name="sizeGroup" inline>
                   1
                 </Radio>
-                <Radio name="radioGroup" inline>
+                <Radio name="sizeGroup" inline>
                   2
                 </Radio>
-                <Radio name="radioGroup" inline>
+                <Radio name="sizeGroup" inline>
                   3
                 </Radio>
               </FormGroup>
