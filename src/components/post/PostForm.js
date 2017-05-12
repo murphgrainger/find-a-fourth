@@ -60,8 +60,8 @@ class PostForm extends React.Component {
     startDate: moment(),
     ageRange: [25, 45],
     handicapRange: [10, 20],
-    genderGroup: ['male', 'female', 'any'],
-    sizeGroup: [1, 2, 3]
+    genderGroup: 'any',
+    sizeGroup: 1
 };
   this.timeReformat = this.timeReformat.bind(this);
   this.timeValues = this.timeValues.bind(this)
@@ -69,6 +69,8 @@ class PostForm extends React.Component {
   this.ageValues = this.ageValues.bind(this)
   this.handleChange = this.handleChange.bind(this)
   this.formSubmit = this.formSubmit.bind(this)
+  this.genderGroupVal = this.genderGroupVal.bind(this)
+  this.sizeGroupVal = this.sizeGroupVal.bind(this)
 }
 
 timeReformat(int) {
@@ -94,6 +96,18 @@ ageValues(arrVals) {
 handleChange(date) {
   this.setState({
     startDate: date
+  });
+}
+
+genderGroupVal(e) {
+  this.setState({
+    genderGroup: e.target.value
+  });
+}
+
+sizeGroupVal(e) {
+  this.setState({
+    sizeGroup: e.target.value
   });
 }
 
@@ -138,25 +152,25 @@ formSubmit(e) {
               </FormGroup>
               <p className="label">Gender Preference</p>
               <FormGroup id="radio-group">
-                <Radio name="genderGroup" value="any" inline>
+                <Radio name="genderGroup" value="any" inline onChange={this.genderGroupVal}>
                   Any
                 </Radio>
-                <Radio name="genderGroup" value="male" inline>
+                <Radio name="genderGroup" value="male" inline onChange={this.genderGroupVal}>
                   Male
                 </Radio>
-                <Radio name="genderGroup" value="female" inline>
+                <Radio name="genderGroup" value="female" inline onChange={this.genderGroupVal}>
                   Female
                 </Radio>
               </FormGroup>
               <p className="label">Current Group Size</p>
               <FormGroup id="radio-group">
-                <Radio name="sizeGroup" inline>
+                <Radio name="sizeGroup" value="1" inline onChange={this.sizeGroupVal}>
                   1
                 </Radio>
-                <Radio name="sizeGroup" inline>
+                <Radio name="sizeGroup" value="2" inline onChange={this.sizeGroupVal}>
                   2
                 </Radio>
-                <Radio name="sizeGroup" inline>
+                <Radio name="sizeGroup" value="3" inline onChange={this.sizeGroupVal}>
                   3
                 </Radio>
               </FormGroup>
