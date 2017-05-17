@@ -14,7 +14,7 @@ import moment from 'moment'
 import { Calendar, DateRange } from 'react-date-range';
 import DatePicker from 'react-datepicker';
 
-
+const LOCAL_URL= 'http://localhost:4000'
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 const Handle = Slider.Handle;
@@ -121,6 +121,25 @@ formSubmit(e) {
       sizeGroup: this.sizeGroup
     });
     console.log(this.state);
+    this.postFunction(this.state)
+}
+
+postFunction(state) {
+  console.log(state);
+  let url = `${LOCAL_URL}/posts`;
+  fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    body: JSON.stringify(state)
+  }).then(res => {
+    return res.json()
+  }).then(data => {
+    console.log(data);
+  })
 }
 
     render() {
