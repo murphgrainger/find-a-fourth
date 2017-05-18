@@ -57,28 +57,23 @@ class PostForm extends React.Component {
   constructor(props) {
   super(props);
   this.state = {
-    startDate: moment(),
+    date: moment(),
     ageRange: [25, 45],
     handicapRange: [10, 20],
-    genderGroup: 'any',
+    gender: 'any',
     sizeGroup: 1
 };
   this.timeReformat = this.timeReformat.bind(this);
-  this.timeValues = this.timeValues.bind(this)
   this.handicapValues = this.handicapValues.bind(this)
   this.ageValues = this.ageValues.bind(this)
   this.handleChange = this.handleChange.bind(this)
   this.formSubmit = this.formSubmit.bind(this)
-  this.genderGroupVal = this.genderGroupVal.bind(this)
+  this.genderVal = this.genderVal.bind(this)
   this.sizeGroupVal = this.sizeGroupVal.bind(this)
 }
 
 timeReformat(int) {
   return moment(int, 'HH').format('ha')
-}
-
-timeValues(arrVals) {
-  console.log(arrVals);
 }
 
 handicapValues(arrVals) {
@@ -95,13 +90,13 @@ ageValues(arrVals) {
 
 handleChange(date) {
   this.setState({
-    startDate: date
+    date: date
   });
 }
 
-genderGroupVal(e) {
+genderVal(e) {
   this.setState({
-    genderGroup: e.target.value
+    gender: e.target.value
   });
 }
 
@@ -114,32 +109,13 @@ sizeGroupVal(e) {
 formSubmit(e) {
   e.preventDefault()
     this.setState({
-      startDate: this.state.startDate,
+      date: this.state.date,
       ageRange: this.state.ageRange,
       handicapRange: this.handicapRange,
-      genderGroup: this.genderGroup,
+      gender: this.gender,
       sizeGroup: this.sizeGroup
     });
-    console.log(this.state);
     this.postFunction(this.state)
-}
-
-postFunction(state) {
-  console.log(state);
-  let url = `${LOCAL_URL}/posts`;
-  fetch(url, {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    body: JSON.stringify(state)
-  }).then(res => {
-    return res.json()
-  }).then(data => {
-    console.log(data);
-  })
 }
 
     render() {
@@ -152,7 +128,7 @@ postFunction(state) {
               <p className="label">Available Date</p>
               <FormGroup id="date-container">
                 <DatePicker
-                  selected={this.state.startDate}
+                  selected={this.state.date}
                   onChange={this.handleChange}
                   className="date-picker"
                   />
@@ -171,13 +147,13 @@ postFunction(state) {
               </FormGroup>
               <p className="label">Gender Preference</p>
               <FormGroup id="radio-group">
-                <Radio name="genderGroup" value="any" inline onChange={this.genderGroupVal}>
+                <Radio name="gender" value="any" inline onChange={this.genderVal}>
                   Any
                 </Radio>
-                <Radio name="genderGroup" value="male" inline onChange={this.genderGroupVal}>
+                <Radio name="gender" value="male" inline onChange={this.genderVal}>
                   Male
                 </Radio>
-                <Radio name="genderGroup" value="female" inline onChange={this.genderGroupVal}>
+                <Radio name="gender" value="female" inline onChange={this.genderVal}>
                   Female
                 </Radio>
               </FormGroup>
@@ -201,6 +177,25 @@ postFunction(state) {
           </Grid>
           </div>
         );
+    }
+
+    postFunction(state) {
+      let url = `${LOCAL_URL}/posts`;
+      fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify(state)
+      }).then(res => {
+        return res.json()
+      }).then(data => {
+        console.log(data);
+      }).catch(err => {
+        console.log(err)
+      })
     }
 }
 
