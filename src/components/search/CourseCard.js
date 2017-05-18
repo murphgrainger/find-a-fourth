@@ -7,8 +7,6 @@ import { Grid, Row, Col, Button, Thumbnail } from 'react-bootstrap';
 class CourseCard extends Component {
   constructor(props) {
   super(props);
-  this.state = { greeting: 'Hello' };
-  this.frenchify = this.frenchify.bind(this);
 }
 
 frenchify() {
@@ -20,17 +18,12 @@ this.setState({ greeting: 'Bonjour' });
       <div className="CourseCard">
           <Col xs={6} md={4}>
             <Thumbnail>
-              <h3>{this.props.post.course_name}</h3>
-              <p>{this.props.post.course_address}</p>
-              <p>{this.props.post.course_phone}</p>
-              <p>{this.props.post.date} at {this.props.post.time}</p>
-              <p>Greens Fee: ${this.props.post.cost}</p>
+              <p>{this.props.post.date}</p>
+              <p>Handicap: {this.props.post.handicap_min} to {this.props.post.handicap_max}</p>
+              <p>Age: {this.props.post.age_min} to {this.props.post.age_max}yrs</p>
               <p>{this.props.post.group_count} Players</p>
-              <p>Age Range: {this.props.post.age_range}</p>
-              <p>Handicap Range: {this.props.post.handicap_range}</p>
-              <p>Gender: {this.props.post.gender}</p>
               <p>
-                <Button bsStyle="success" onClick={this.frenchify}>Request to Join</Button>&nbsp;
+                <Button bsStyle="success">Request to Join</Button>&nbsp;
               </p>
             </Thumbnail>
           </Col>

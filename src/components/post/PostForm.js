@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+
 
 import './post.css'
 import 'rc-slider/assets/index.css';
@@ -61,7 +63,8 @@ class PostForm extends React.Component {
     ageRange: [25, 45],
     handicapRange: [10, 20],
     gender: 'any',
-    sizeGroup: 1
+    sizeGroup: 1,
+    redirect: false
 };
   this.timeReformat = this.timeReformat.bind(this);
   this.handicapValues = this.handicapValues.bind(this)
@@ -113,12 +116,16 @@ formSubmit(e) {
       ageRange: this.state.ageRange,
       handicapRange: this.handicapRange,
       gender: this.gender,
-      sizeGroup: this.sizeGroup
+      sizeGroup: this.sizeGroup,
     });
     this.postFunction(this.state)
 }
 
     render() {
+       const { redirect } = this.state;
+       if (redirect) {
+       return <Redirect to='/search'/>;
+     }
         return (
           <div className="container">
             <Grid>
@@ -192,6 +199,9 @@ formSubmit(e) {
       }).then(res => {
         return res.json()
       }).then(data => {
+        this.setState({
+          redirect: true
+        })
         console.log(data);
       }).catch(err => {
         console.log(err)
