@@ -7,7 +7,7 @@ import 'rc-slider/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-import { Grid, Row, Col, Form, FieldGroup, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel, Label, Jumbotron, Container } from 'reactstrap';
+import { Grid, Row, Col, Form, FieldGroup, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel, Label, Jumbotron, Container, Card, CardTitle, CardText } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
@@ -134,57 +134,59 @@ formSubmit(e) {
                 <p className="lead">Select handicap, age, and gender preferences for players to join.  Input current group size.  Optionally add region.</p>
               </Container>
             </Jumbotron>
-            <Row className="form-holder">
             <form onSubmit={this.formSubmit}>
-              <p className="label">Available Date</p>
-              <FormGroup id="date-container">
-                <DatePicker
-                  selected={this.state.date}
-                  onChange={this.handleChange}
-                  className="date-picker"
-                  />
-              </FormGroup>
-              <p className="label">Handicap Range</p>
+              <Row className="top-row">
+                <Col xs="12" sm="4" m="4" l="4">
+                  <Card block>
+                    <CardTitle>Date to Play</CardTitle>
+                      <FormGroup><DatePicker
+                      selected={this.state.date}
+                      onChange={this.handleChange}
+                      className="date-picker"
+                      /></FormGroup>
+                  </Card>
+                </Col>
+                <Col xs="12" sm="4" m="4" l="4">
+                  <Card block>
+                    <CardTitle>Current Group Size</CardTitle>
+                      <FormGroup>
+                     <Input type="select" name="select" id="group-size">
+                       <option value="1" defaultValue>1</option>
+                       <option value="2">2</option>
+                       <option value="3">3</option>
+                     </Input>
+                   </FormGroup>
+                  </Card>
+                </Col>
+                <Col xs="12" sm="4" m="4" l="4">
+                  <Card block>
+                    <CardTitle>Gender Preference</CardTitle>
+                      <FormGroup>
+                     <Input type="select" name="select" id="gender-group">
+                       <option value="Any" defaultValue>Any</option>
+                       <option value="Male">Male</option>
+                       <option value="Female">Female</option>
+                     </Input>
+                   </FormGroup>
+                    </Card>
+                  </Col>
+              </Row>
+              <p className="label">Handicap</p>
               <FormGroup>
                 <div className="slider">
                   <Range min={0} max={40} defaultValue={[10, 20]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
-                <p className="label">Age Range</p>
+                <p className="label">Age</p>
               <FormGroup>
                 <div className="slider">
                   <Range min={17} max={75} defaultValue={[25, 45]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
-              <p className="label">Gender Preference</p>
-                <FormGroup className="radio-group">
-                <Label check>
-                  <Input type="radio" name="gender" value="Any" onChange={this.sizeGroupVal}/>{' '}
-                    Any </Label>
-                <Label check>
-                  <Input type="radio" name="gender" value="Male" onChange={this.sizeGroupVal}/>{' '}
-                    Male </Label>
-                <Label check>
-                  <Input type="radio" name="gender" value="Female" onChange={this.sizeGroupVal}/>{' '}
-                    Female </Label>
-                </FormGroup>
-                <p className="label">Current Group Size</p>
-                <FormGroup className="radio-group">
-                <Label check>
-                  <Input type="radio" name="sizeGroup" value="1" onChange={this.sizeGroupVal}/>{' '}
-                    1 </Label>
-                <Label check>
-                  <Input type="radio" name="sizeGroup" value="2" onChange={this.sizeGroupVal}/>{' '}
-                    2 </Label>
-                <Label check>
-                  <Input type="radio" name="sizeGroup" value="3" onChange={this.sizeGroupVal}/>{' '}
-                    3 </Label>
-                </FormGroup>
               <Button type="submit">
                 Next
               </Button>
               </form>
-            </Row>
           </div>
         );
     }
