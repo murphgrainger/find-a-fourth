@@ -128,7 +128,6 @@ formSubmit(e) {
      }
         return (
           <div className="container">
-            <Grid>
             <Row className="form-holder">
             <form onSubmit={this.formSubmit}>
               <h2>Select Group Preferences</h2>
@@ -153,35 +152,28 @@ formSubmit(e) {
                 </div>
               </FormGroup>
               <p className="label">Gender Preference</p>
-              <FormGroup id="radio-group">
-                <Input type="radio" name="gender" value="any" inline onChange={this.genderVal}>
-                  Any
-                </Input>
-                <Input type="radio" name="gender" value="male" inline onChange={this.genderVal}>
-                  Male
-                </Input>
-                <Input type="radio" name="gender" value="female" inline onChange={this.genderVal}>
-                  Female
-                </Input>
-              </FormGroup>
-              <p className="label">Current Group Size</p>
-              <FormGroup id="radio-group">
-                <Input type="radio" name="sizeGroup" value="1" inline onChange={this.sizeGroupVal}>
-                  1
-                </Input>
-                <Input type="radio" name="sizeGroup" value="2" inline onChange={this.sizeGroupVal}>
-                  2
-                </Input>
-                <Input type="radio" name="sizeGroup" value="3" inline onChange={this.sizeGroupVal}>
-                  3
-                </Input>
-              </FormGroup>
-              <Button type="submit" bsStyle="success">
+                <FormGroup id="radio-group">
+                  <Input type="radio" name="gender" value="any" onChange={this.genderVal}/>
+                    Any
+                  <Input type="radio" name="gender" value="male" onChange={this.genderVal}/>
+                    Male
+                  <Input type="radio" name="gender" value="female" onChange={this.genderVal}/>
+                    Female
+                </FormGroup>
+                <p className="label">Current Group Size</p>
+                <FormGroup id="radio-group">
+                  <Input type="radio" name="sizeGroup" value="1" onChange={this.sizeGroupVal}/>
+                    1
+                  <Input type="radio" name="sizeGroup" value="2" onChange={this.sizeGroupVal}/>
+                    2
+                  <Input type="radio" name="sizeGroup" value="3" onChange={this.sizeGroupVal}/>
+                    3
+                </FormGroup>
+              <Button type="submit">
                 Next
               </Button>
               </form>
             </Row>
-          </Grid>
           </div>
         );
     }
