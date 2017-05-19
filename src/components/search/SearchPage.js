@@ -2,7 +2,7 @@ import React from 'react';
 import {Button} from 'reactstrap';
 import moment from 'moment'
 
-import { CardDeck } from 'reactstrap';
+import { CardDeck, Jumbotron, Container, CardColumns } from 'reactstrap';
 
 
 import CourseCard from './CourseCard';
@@ -26,10 +26,15 @@ componentDidMount() {
     render() {
         return (
           <div className="container">
-            <h1>Join a Group</h1>
-            <CardDeck>
+            <Jumbotron fluid>
+              <Container fluid>
+                <h1 className="display-3">Join a Group</h1>
+                <p className="lead">Filter posts based on handicap, age, date, or group size.  Click "Join" to be added to the group.</p>
+              </Container>
+            </Jumbotron>
+            <CardColumns>
             {this.renderPosts()}
-            </CardDeck>
+          </CardColumns>
           </div>
         );
     }
@@ -58,11 +63,9 @@ componentDidMount() {
         return moment.utc(left.date).diff(moment.utc(right.date))
       });
       data.forEach(e => {
-        console.log(e.date);
         let str = e.date;
         let date = moment(str);
         e.date = date.utc().format('ddd, MMM Do');
-        console.log(e.date);
       })
         this.setState({ posts: [...this.state.posts, ...data] });
       })
