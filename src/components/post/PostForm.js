@@ -7,7 +7,7 @@ import 'rc-slider/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-import { Grid, Row, Col, Form, FieldGroup, Checkbox, Radio, FormControl, Button, FormGroup, ControlLabel } from 'react-bootstrap';
+import { Grid, Row, Col, Form, FieldGroup, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
@@ -154,27 +154,27 @@ formSubmit(e) {
               </FormGroup>
               <p className="label">Gender Preference</p>
               <FormGroup id="radio-group">
-                <Radio name="gender" value="any" inline onChange={this.genderVal}>
+                <Input type="radio" name="gender" value="any" inline onChange={this.genderVal}>
                   Any
-                </Radio>
-                <Radio name="gender" value="male" inline onChange={this.genderVal}>
+                </Input>
+                <Input type="radio" name="gender" value="male" inline onChange={this.genderVal}>
                   Male
-                </Radio>
-                <Radio name="gender" value="female" inline onChange={this.genderVal}>
+                </Input>
+                <Input type="radio" name="gender" value="female" inline onChange={this.genderVal}>
                   Female
-                </Radio>
+                </Input>
               </FormGroup>
               <p className="label">Current Group Size</p>
               <FormGroup id="radio-group">
-                <Radio name="sizeGroup" value="1" inline onChange={this.sizeGroupVal}>
+                <Input type="radio" name="sizeGroup" value="1" inline onChange={this.sizeGroupVal}>
                   1
-                </Radio>
-                <Radio name="sizeGroup" value="2" inline onChange={this.sizeGroupVal}>
+                </Input>
+                <Input type="radio" name="sizeGroup" value="2" inline onChange={this.sizeGroupVal}>
                   2
-                </Radio>
-                <Radio name="sizeGroup" value="3" inline onChange={this.sizeGroupVal}>
+                </Input>
+                <Input type="radio" name="sizeGroup" value="3" inline onChange={this.sizeGroupVal}>
                   3
-                </Radio>
+                </Input>
               </FormGroup>
               <Button type="submit" bsStyle="success">
                 Next

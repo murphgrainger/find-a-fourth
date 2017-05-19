@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-import { Grid, Row, Col, Form, FieldGroup, Checkbox, Radio, FormControl, Button, FormGroup, ControlLabel } from 'react-bootstrap';
+import { Grid, Row, Col, Form, FieldGroup, Checkbox, Radio, FormControl, Button, FormGroup, ControlLabel } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';

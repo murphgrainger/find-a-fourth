@@ -1,6 +1,8 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
+import {Button} from 'reactstrap';
 import moment from 'moment'
+
+import { CardDeck } from 'reactstrap';
 
 
 import CourseCard from './CourseCard';
@@ -25,7 +27,9 @@ componentDidMount() {
         return (
           <div className="container">
             <h1>Join a Group</h1>
+            <CardDeck>
             {this.renderPosts()}
+            </CardDeck>
           </div>
         );
     }

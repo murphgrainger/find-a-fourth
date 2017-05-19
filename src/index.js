@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom'
 
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 import Header from './components/common/Header';
 import Home from './components/home/HomePage';

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './card.css';
 
-import { Grid, Row, Col, Button, Thumbnail } from 'react-bootstrap';
+import { Card, Button, CardHeader, CardText, Row, Col, CardDeck } from 'reactstrap';
+import Icon from 'react-fontawesome';
 
 
 class CourseCard extends Component {
@@ -9,25 +10,17 @@ class CourseCard extends Component {
   super(props);
 }
 
-frenchify() {
-this.setState({ greeting: 'Bonjour' });
-}
-
   render() {
     return (
-      <div className="CourseCard">
-          <Col xs={6} md={4}>
-            <Thumbnail>
-              <p>{this.props.post.date}</p>
-              <p>Handicap: {this.props.post.handicap_min} to {this.props.post.handicap_max}</p>
-              <p>Age: {this.props.post.age_min} to {this.props.post.age_max}yrs</p>
-              <p>{this.props.post.group_count} Players</p>
-              <p>
-                <Button bsStyle="success">Request to Join</Button>&nbsp;
-              </p>
-            </Thumbnail>
-          </Col>
-      </div>
+      <Card className="CourseCard">
+        <CardHeader className="date"> <Icon name='calendar' size='2x'/> &nbsp; {this.props.post.date}</CardHeader>
+        <p className="preferences">Handicap: {this.props.post.handicap_min} to {this.props.post.handicap_max}</p>
+        <p className="preferences">Age: {this.props.post.age_min} to {this.props.post.age_max}yrs</p>
+        <p className="preferences">{this.props.post.group_count} Players</p>
+        <p className="button-p">
+        <Button bsStyle="success">Join</Button>
+        </p>
+      </Card>
     );
   }
 }
