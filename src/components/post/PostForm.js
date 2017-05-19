@@ -7,7 +7,7 @@ import 'rc-slider/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-import { Grid, Row, Col, Form, FieldGroup, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel } from 'reactstrap';
+import { Grid, Row, Col, Form, FieldGroup, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel, Label } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
@@ -152,22 +152,28 @@ formSubmit(e) {
                 </div>
               </FormGroup>
               <p className="label">Gender Preference</p>
-                <FormGroup id="radio-group">
-                  <Input type="radio" name="gender" value="any" onChange={this.genderVal}/>
-                    Any
-                  <Input type="radio" name="gender" value="male" onChange={this.genderVal}/>
-                    Male
-                  <Input type="radio" name="gender" value="female" onChange={this.genderVal}/>
-                    Female
+                <FormGroup className="radio-group">
+                <Label check>
+                  <Input type="radio" name="gender" value="Any" onChange={this.sizeGroupVal}/>{' '}
+                    Any </Label>
+                <Label check>
+                  <Input type="radio" name="gender" value="Male" onChange={this.sizeGroupVal}/>{' '}
+                    Male </Label>
+                <Label check>
+                  <Input type="radio" name="gender" value="Female" onChange={this.sizeGroupVal}/>{' '}
+                    Female </Label>
                 </FormGroup>
                 <p className="label">Current Group Size</p>
-                <FormGroup id="radio-group">
-                  <Input type="radio" name="sizeGroup" value="1" onChange={this.sizeGroupVal}/>
-                    1
-                  <Input type="radio" name="sizeGroup" value="2" onChange={this.sizeGroupVal}/>
-                    2
-                  <Input type="radio" name="sizeGroup" value="3" onChange={this.sizeGroupVal}/>
-                    3
+                <FormGroup className="radio-group">
+                <Label check>
+                  <Input type="radio" name="sizeGroup" value="1" onChange={this.sizeGroupVal}/>{' '}
+                    1 </Label>
+                <Label check>
+                  <Input type="radio" name="sizeGroup" value="2" onChange={this.sizeGroupVal}/>{' '}
+                    2 </Label>
+                <Label check>
+                  <Input type="radio" name="sizeGroup" value="3" onChange={this.sizeGroupVal}/>{' '}
+                    3 </Label>
                 </FormGroup>
               <Button type="submit">
                 Next

@@ -34,24 +34,21 @@ form h2 {
   justify-content: center;
 }
 
-#radio-group {
-  font-size: 1.25em;
-  margin: 0;
-  padding-bottom: 1.5em;
+.react-datepicker__input-container {
+  text-align: center;
 }
 
 .date-picker {
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
   border: 3px solid green;
+  width: 75%;
 }
 
 .form-group {
   width: 100%;
-  padding-bottom: 2em;
   display: flex;
   justify-content: center;
-
 }
 
 .label {
@@ -60,8 +57,6 @@ form h2 {
   font-weight: 500;
   color: #474744;
 }
-
-/*Slider*/
 
 .slider {
   width: 90%;
@@ -73,13 +68,4 @@ form h2 {
 
 .rc-slider-handle, .rc-slider-dot {
   border-color: green!important;
-}
-
-.radio-inline {
-  padding-left: .75em;
-  padding-right: .75em;
-}
-
-.radio-inline input {
-  background-color: black;
 }
