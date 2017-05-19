@@ -5,3 +5,11 @@
 .card-footer {
   text-align: center;
 }
+
+.date {
+  font-size: 1.25em;
+}
+
+.preferences {
+  color: #475B5A;
+}

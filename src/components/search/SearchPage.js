@@ -5,7 +5,7 @@ import moment from 'moment'
 import { CardDeck, Jumbotron, Container, CardColumns } from 'reactstrap';
 
 
-import CourseCard from './CourseCard';
+import PostCard from './PostCard';
 
 import './search.css'
 
@@ -73,7 +73,7 @@ componentDidMount() {
 
     renderPosts() {
       return this.state.posts.map(post => (
-        <CourseCard
+        <PostCard
           key={post.id}
           post={post}
         />
