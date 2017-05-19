@@ -110,6 +110,7 @@ sizeGroupVal(e) {
 }
 
 formSubmit(e) {
+  console.log(this.state);
   e.preventDefault()
     this.setState({
       date: this.state.date,
@@ -150,7 +151,7 @@ formSubmit(e) {
                   <Card block>
                     <CardTitle>Current Group Size</CardTitle>
                       <FormGroup>
-                     <Input type="select" name="select" id="group-size">
+                     <Input type="select" name="select" id="group-size" onChange={this.sizeGroupVal}>
                        <option value="1" defaultValue>1</option>
                        <option value="2">2</option>
                        <option value="3">3</option>
@@ -162,7 +163,7 @@ formSubmit(e) {
                   <Card block>
                     <CardTitle>Gender Preference</CardTitle>
                       <FormGroup>
-                     <Input type="select" name="select" id="gender-group">
+                     <Input type="select" name="select" id="gender-group" onChange={this.genderVal}>
                        <option value="Any" defaultValue>Any</option>
                        <option value="Male">Male</option>
                        <option value="Female">Female</option>
