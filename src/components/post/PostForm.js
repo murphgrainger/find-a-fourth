@@ -7,7 +7,7 @@ import 'rc-slider/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-import { Grid, Row, Col, Form, FieldGroup, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel, Label } from 'reactstrap';
+import { Grid, Row, Col, Form, FieldGroup, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel, Label, Jumbotron, Container } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
@@ -128,9 +128,14 @@ formSubmit(e) {
      }
         return (
           <div className="container">
+            <Jumbotron fluid>
+              <Container fluid>
+                <h1 className="display-3">Post a Group</h1>
+                <p className="lead">Select handicap, age, and gender preferences for players to join.  Input current group size.  Optionally add region.</p>
+              </Container>
+            </Jumbotron>
             <Row className="form-holder">
             <form onSubmit={this.formSubmit}>
-              <h2>Select Group Preferences</h2>
               <p className="label">Available Date</p>
               <FormGroup id="date-container">
                 <DatePicker
