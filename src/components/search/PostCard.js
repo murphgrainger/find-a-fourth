@@ -12,8 +12,8 @@ class PostCard extends Component {
 
   render() {
     return (
-      <Card inverse style={{ backgroundColor: '#63B995', borderColor: '#63B995' }} className="PostCard">
-        <CardHeader className="date"><Icon name='calendar' size='2x'/> &nbsp;{this.props.post.date}</CardHeader>
+      <Card inverse style={{ backgroundColor: '#63B995', border:'none' }} className="PostCard">
+        <CardHeader className="date" inverse style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}><Icon name='calendar' size='2x'/> &nbsp;{this.props.post.date}</CardHeader>
           <CardBlock>
           <ListGroup>
           <ListGroupItem className="preferences">{this.props.post.handicap_min} to {this.props.post.handicap_max} Index</ListGroupItem>

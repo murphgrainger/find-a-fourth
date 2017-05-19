@@ -5,23 +5,55 @@
   align-items: center;
 }
 
+.form-jumbotron {
+  /*background-image: url(../../images/redsky.JPG);*/
+  background-size: cover;
+  background-position: 0% 70%;
+  /*color: white;*/
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding: 1.5rem 1rem;
+  width: 85%;
+  background: #475B5A;
+  color: white;
+}
+
 form {
   width: 85%;
+  padding: 1em;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background: #63B995;
+}
+
+.date-card {
+  height: 8.4rem;
 }
 
 .react-datepicker__input-container {
   text-align: center;
 }
 
-.radio-group {
-  margin-bottom: 0px;
-}
-
 .date-picker {
   font-size: 1.5em;
   text-align: center;
-  border: 3px solid green;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: .25rem;
   width: 75%;
+}
+
+.range-row {
+  display: flex;
+  flex-direction: column;
+  height: 12em;
+  justify-content: space-around;
+  text-align: left!important;
+}
+
+.range-row .form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .slider {
@@ -29,9 +61,14 @@ form {
 }
 
 .rc-slider-track {
-  background-color: green!important;
+  background-color: #475B5A!important;
 }
 
 .rc-slider-handle, .rc-slider-dot {
-  border-color: green!important;
+  border-color: #475B5A!important;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
 }

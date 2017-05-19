@@ -7,7 +7,7 @@ import 'rc-slider/assets/index.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-import { Grid, Row, Col, Form, FieldGroup, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel, Label, Jumbotron, Container, Card, CardTitle, CardText } from 'reactstrap';
+import { Row, Col, Form, Checkbox, Input, FormControl, Button, FormGroup, ControlLabel, Label, Jumbotron, Container, Card, CardTitle, CardText } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
@@ -129,7 +129,7 @@ formSubmit(e) {
      }
         return (
           <div className="container">
-            <Jumbotron fluid>
+            <Jumbotron fluid className="form-jumbotron">
               <Container fluid>
                 <h1 className="display-3">Post a Group</h1>
                 <p className="lead">Select handicap, age, and gender preferences for players to join.  Input current group size.  Optionally add region.</p>
@@ -137,9 +137,9 @@ formSubmit(e) {
             </Jumbotron>
             <form onSubmit={this.formSubmit}>
               <Row className="top-row">
-                <Col xs="12" sm="4" m="4" l="4">
-                  <Card block>
-                    <CardTitle>Date to Play</CardTitle>
+                <Col xs="12" sm="12" md="4" lg="4">
+                  <Card block className="date-card" inverse style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}>
+                    <CardTitle>Date of Round</CardTitle>
                       <FormGroup><DatePicker
                       selected={this.state.date}
                       onChange={this.handleChange}
@@ -147,8 +147,8 @@ formSubmit(e) {
                       /></FormGroup>
                   </Card>
                 </Col>
-                <Col xs="12" sm="4" m="4" l="4">
-                  <Card block>
+                <Col xs="12" sm="12" md="4" lg="4">
+                  <Card block inverse style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}>
                     <CardTitle>Current Group Size</CardTitle>
                       <FormGroup>
                      <Input type="select" name="select" id="group-size" onChange={this.sizeGroupVal}>
@@ -159,8 +159,8 @@ formSubmit(e) {
                    </FormGroup>
                   </Card>
                 </Col>
-                <Col xs="12" sm="4" m="4" l="4">
-                  <Card block>
+                <Col xs="12" sm="12" md="4" lg="4">
+                  <Card block inverse style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}>
                     <CardTitle>Gender Preference</CardTitle>
                       <FormGroup>
                      <Input type="select" name="select" id="gender-group" onChange={this.genderVal}>
@@ -172,21 +172,25 @@ formSubmit(e) {
                     </Card>
                   </Col>
               </Row>
-              <p className="label">Handicap</p>
+              <Row className="range-row">
               <FormGroup>
                 <div className="slider">
+                  <Label style={{color: '#475B5A'}}>Handicap</Label>
                   <Range min={0} max={40} defaultValue={[10, 20]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
-                <p className="label">Age</p>
               <FormGroup>
                 <div className="slider">
+                  <Label style={{color: 'white'}}>Age</Label>
                   <Range min={17} max={75} defaultValue={[25, 45]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
-              <Button type="submit">
+              </Row>
+              <Row className="button-row">
+              <Button type="submit" style={{backgroundColor: '#475B5A', borderColor: '#475B5A', color: 'white'}}>
                 Next
               </Button>
+              </Row>
               </form>
           </div>
         );

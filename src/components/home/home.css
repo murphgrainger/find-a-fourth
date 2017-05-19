@@ -2,11 +2,12 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-
-.jumbotron {
-  /*background-image: url(../../images/redsky.JPG);*/
+.home-jumbotron {
+  background-image: url(../../images/redsky.JPG);
   background-size: cover;
   background-position: 0% 70%;
-  /*color: white;*/
-  margin-top: 2rem;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
 }
