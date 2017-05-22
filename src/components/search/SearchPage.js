@@ -33,9 +33,9 @@ onChildHandicapChanged(newState) {
      this.setState({ handicapRange: newState })
    }
 
- onChildAgeChanged(newState) {
-      this.setState({ ageRange: newState })
-    }
+onChildAgeChanged(newState) {
+    this.setState({ ageRange: newState })
+  }
 
     render() {
         return (
@@ -91,13 +91,11 @@ onChildHandicapChanged(newState) {
     }
 
     renderPosts() {
-      // let filteredPosts = this.props.posts.filter(
-      //   (post) ={
-      //     return post.handicap.indexOf(this.state.handicapRange[0]) !== -1;
-      //   }
-      // )
+      let filteredPosts = this.state.posts.filter((post) => {
+          return !(post.handicap_min >= this.state.handicapRange[1]) && !(post.handicap_max <= this.state.handicapRange[0])
+        })
 
-      return this.state.posts.map(post => (
+      return filteredPosts.map(post => (
         <PostCard
           key={post.id}
           post={post}
