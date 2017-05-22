@@ -42,24 +42,30 @@ const handicapMarks = {
 
 const ageMarks = {
   17: <strong>17</strong>,
-  25: '25',
   35: '35',
-  45: '45',
   55: '55',
-  65: '65',
   75: <strong>75</strong>,
+};
+
+const sizeMarks = {
+  1: <strong>1</strong>,
+  2: <strong>2</strong>,
+  3: <strong>3</strong>,
 };
 
 class FilterRow extends React.Component {
 
-  constructor({initialHandicap, initialAge}) {
+  constructor({initialHandicap, initialAge, initialSize}) {
   super();
   this.state = {
     handicapRange: initialHandicap,
-    ageRange: initialAge
+    ageRange: initialAge,
+    groupSize: initialSize
 };
   this.handicapValues = this.handicapValues.bind(this)
   this.ageValues = this.ageValues.bind(this)
+  this.groupSizeVals = this.groupSizeVals.bind(this)
+
 }
 
 handicapValues(arrVals) {
@@ -78,6 +84,14 @@ ageValues(arrVals) {
   this.props.callbackAgeParent(newState);
 }
 
+groupSizeVals(arrVals) {
+  const newState = arrVals
+  this.setState({
+    groupSize: newState
+  });
+  this.props.callbackSizeParent(newState);
+}
+
     render() {
        const { redirect } = this.state;
        if (redirect) {
@@ -86,18 +100,24 @@ ageValues(arrVals) {
         return (
           <div>
               <Row className="filter-row">
-                <Col xs="12" md="6">
+                <Col xs="12" md="4">
                 <div className="slider">
                   <Label>Handicap</Label>
                   <Range min={0} max={40} defaultValue={[this.state.handicapRange[0], this.state.handicapRange[1]]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
                 </div>
                 </Col>
-                <Col xs="12" md="6">
+                <Col xs="12" md="4">
                 <div className="slider">
                   <Label>Age</Label>
                   <Range min={17} max={75} defaultValue={[this.state.ageRange[0], this.state.ageRange[1]]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                 </div>
               </Col>
+              <Col xs="12" md="4">
+              <div className="slider">
+                <Label>Group Size</Label>
+                <Range min={1} max={3} defaultValue={[this.state.groupSize[0], this.state.groupSize[1]]} marks={sizeMarks} onAfterChange={this.groupSizeVals}	tipFormatter={value => `${value}`} />
+              </div>
+            </Col>
               </Row>
           </div>
         );

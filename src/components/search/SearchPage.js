@@ -21,7 +21,9 @@ class SearchPage extends React.Component {
   this.state = {
     posts: [],
     handicapRange: [5, 35],
-    ageRange: [17, 75]};
+    ageRange: [17, 75],
+    groupSize: [1, 3]
+  };
   this.getPosts = this.getPosts.bind(this);
 }
 
@@ -37,6 +39,10 @@ onChildAgeChanged(newState) {
     this.setState({ ageRange: newState })
   }
 
+onChildSizeChanged(newState) {
+    this.setState({ groupSize: newState })
+  }
+
     render() {
         return (
           <div>
@@ -49,8 +55,10 @@ onChildAgeChanged(newState) {
             <FilterRow
               initialHandicap={this.state.handicapRange}
               initialAge={this.state.ageRange}
+              initialSize={this.state.groupSize}
               callbackHandicapParent={(newState) => this.onChildHandicapChanged(newState) }
-              callbackAgeParent={(newState) => this.onChildAgeChanged(newState) }/>
+              callbackAgeParent={(newState) => this.onChildAgeChanged(newState) }
+              callbackSizeParent={(newState) => this.onChildSizeChanged(newState) }/>
             <div className="card-holder">
             {this.renderPosts()}
           </div>
@@ -92,7 +100,12 @@ onChildAgeChanged(newState) {
 
     renderPosts() {
       let filteredPosts = this.state.posts.filter((post) => {
-          return !(post.handicap_min >= this.state.handicapRange[1]) && !(post.handicap_max <= this.state.handicapRange[0]) && !(post.age_min >= this.state.ageRange[1]) && !(post.age_max <= this.state.ageRange[0])
+          return !(post.handicap_min >= this.state.handicapRange[1]) &&
+          !(post.handicap_max <= this.state.handicapRange[0]) &&
+          !(post.age_min >= this.state.ageRange[1]) &&
+          !(post.age_max <= this.state.ageRange[0]) &&
+          post.group_count >= this.state.groupSize[0] &&
+          post.group_count <= this.state.groupSize[1]
         })
 
       return filteredPosts.map(post => (
