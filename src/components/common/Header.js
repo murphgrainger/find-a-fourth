@@ -22,16 +22,16 @@ class Header extends Component {
 render() {
   return (
    <div>
-      <Navbar color="faded" light toggleable>
+      <Navbar style={{backgroundColor: '#475B5A'}} light inverse toggleable>
         <NavbarToggler right onClick={this.toggle} />
         <NavbarBrand href="/">Find a Fourth</NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/post/">Post</NavLink>
+              <NavLink href="/search/">Search</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/search/">Search</NavLink>
+              <NavLink href="/post/">Post</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/profile/">Profile</NavLink>

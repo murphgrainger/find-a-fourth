@@ -3,11 +3,16 @@ html, body {
 }
 
 .home-jumbotron {
-  background-image: url(../../images/redsky.JPG);
+  /*background-image: url(../../images/redsky.JPG);*/
   background-size: cover;
   background-position: 0% 70%;
-  color: white;
+  /*color: white;*/
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 100%;
+  text-align: center;
+}
+
+.jumbotron-button{
+  margin: .5rem;
 }

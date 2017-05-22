@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
-import { Grid, Row, Col, Jumbotron, Container, Button, Nav, Card, CardHeader, CardBlock, CardText, ListGroup, ListGroupItem } from 'reactstrap';
+import { Grid, Row, Col, Jumbotron, Container, Button, Nav, Card, CardTitle, CardBlock, CardText, ListGroup, ListGroupItem } from 'reactstrap';
+
+
+import Icon from 'react-fontawesome';
 
 import './home.css'
 
@@ -10,43 +13,43 @@ class HomePage extends React.Component {
           <div className="container">
             <Jumbotron fluid className="home-jumbotron">
               <Container fluid>
-                <h1 className="display-3">Compatible Groups</h1>
-                <p className="lead">Search or post tee times to play with golfers based on preferences.</p>
+                <h1 className="display-3">Compatible Golf Groupings</h1>
+                <p className="lead">Search for an existing group that matches your preferences, or start one of your own.</p>
+                  <p className="lead">
+              <Button color="primary" className="jumbotron-button" href='/search'>Search</Button>
+              <Button color="primary" className="jumbotron-button" href="/post">Post</Button>
+            </p>
               </Container>
             </Jumbotron>
-                <Row>
-                <Col xs={6} md={6}>
-                  <Card>
-                    <CardHeader>Search</CardHeader>
-                      <CardBlock>
-                        <CardText>Find an existing group based on search preferences.</CardText>
-                      <ListGroup>
-                      <ListGroupItem className="preferences">Handicap</ListGroupItem>
-                      <ListGroupItem className="preferences">Age</ListGroupItem>
-                      <ListGroupItem className="preferences">Gender</ListGroupItem>
-                      </ListGroup>
-                    </CardBlock>
-                    <p>
-                      <Button bsStyle="primary" href="/search">Search</Button>
-                    </p>
-                  </Card>
-                </Col>
-                <Col xs={6} md={6}>
-                    <Card>
-                      <CardHeader>Post</CardHeader>
-                        <CardBlock>
-                          <CardText>Post an existing tee time with pre-selected preferences for the remaining golfers who will join the group.</CardText>
-                        <ListGroup>
-                        <ListGroupItem className="preferences">Preferences sync with golfer profiles and include handicap, age, and gender</ListGroupItem>
-                        <ListGroupItem className="preferences">Accept or reject join requests</ListGroupItem>
-                        <ListGroupItem className="preferences">Contact accepted group member to confirm addition to course tee time</ListGroupItem>
-                        </ListGroup>
-                      </CardBlock>
-                    <p>
-                      <Button bsStyle="primary" href="/post">Post</Button>
-                    </p>
-                  </Card>
-                </Col>
+                <Row style={{width: '100%', padding:'1rem'}}>
+                  <Col xs="12" md="8">
+                    <h2>Search</h2>
+                      <h6>Find an existing group based on search preferences.</h6>
+                      <p><Icon name='filter' size='2x'/>&nbsp; Handicap</p>
+                      <p> <Icon name='filter' size='2x'/>&nbsp; Age</p>
+                      <p><Icon name='filter' size='2x'/>&nbsp; Gender</p>
+                      <p>
+                        <Button bsStyle="primary" href="/search">Search</Button>
+                      </p>
+                  </Col>
+                  <Col xs="12" md="4">
+                    <img src='https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=250'/>
+                  </Col>
+                  </Row>
+                  <Row style={{width: '100%'}}>
+                    <Col xs="12" md="4">
+                      <img src='https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=250'/>
+                  </Col>
+                  <Col xs="12" md="8">
+                    <h2>Post</h2>
+                    <h6>Post an existing group with pre-selected preferences for the remaining golfers who will join.</h6>
+                    <p><Icon name='refresh' size='2x'/>&nbsp; Preferences sync with golfer profiles and include handicap, age, and gender</p>
+                    <p><Icon name='check' size='2x'/>&nbsp; Accept or reject join requests</p>
+                    <p><Icon name='user' size='2x'/>&nbsp; Contact accepted group member to confirm addition to course tee time</p>
+                  <p>
+                    <Button bsStyle="primary" href="/post">Post</Button>
+                  </p>
+                  </Col>
                 </Row>
             </div>
         );
