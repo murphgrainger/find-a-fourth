@@ -4,8 +4,9 @@ import moment from 'moment'
 
 import { CardDeck, Jumbotron, Container } from 'reactstrap';
 
-
+import FilterRow from '../filter/FilterRow';
 import PostCard from './PostCard';
+
 
 import './search.css'
 import '../../App.css'
@@ -17,13 +18,24 @@ const LOCAL_URL= 'http://localhost:4000'
 class SearchPage extends React.Component {
   constructor(props) {
   super(props);
-  this.state = { posts: [] };
+  this.state = {
+    posts: [],
+    handicapRange: [5, 35],
+    ageRange: [17, 75]};
   this.getPosts = this.getPosts.bind(this);
 }
 
 componentDidMount() {
   this.getPosts()
 }
+
+onChildHandicapChanged(newState) {
+     this.setState({ handicapRange: newState })
+   }
+
+ onChildAgeChanged(newState) {
+      this.setState({ ageRange: newState })
+    }
 
     render() {
         return (
@@ -34,6 +46,11 @@ componentDidMount() {
                 <p className="lead">Filter posts based on handicap, age, date, or group size.  Click "Join" to be added to the group.</p>
               </Container>
             </Jumbotron>
+            <FilterRow
+              initialHandicap={this.state.handicapRange}
+              initialAge={this.state.ageRange}
+              callbackHandicapParent={(newState) => this.onChildHandicapChanged(newState) }
+              callbackAgeParent={(newState) => this.onChildAgeChanged(newState) }/>
             <div className="card-holder">
             {this.renderPosts()}
           </div>
@@ -74,6 +91,12 @@ componentDidMount() {
     }
 
     renderPosts() {
+      // let filteredPosts = this.props.posts.filter(
+      //   (post) ={
+      //     return post.handicap.indexOf(this.state.handicapRange[0]) !== -1;
+      //   }
+      // )
+
       return this.state.posts.map(post => (
         <PostCard
           key={post.id}
