@@ -1,0 +1,20 @@
+.search-jumbotron {
+  width: 100%;
+  text-align: center;
+  padding: 2.25rem;
+  margin: 0;
+}
+
+.card-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.post-card {
+  margin: 1rem;
+  width: 20rem;
+  background-color: rgb(71, 91, 90);
+}

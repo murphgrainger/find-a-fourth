@@ -128,17 +128,17 @@ formSubmit(e) {
        return <Redirect to='/search'/>;
      }
         return (
-          <div className="container">
-            <Jumbotron fluid className="form-jumbotron">
+          <div className="form-holder">
+            <Jumbotron fluid className="search-jumbotron">
               <Container fluid>
-                <h1 className="display-3">Post a Group</h1>
-                <p className="lead">Select handicap, age, and gender preferences for players to join.  Input current group size.  Optionally add region.</p>
+                <h1 className="display-3">Create a Group</h1>
+                <p className="lead">Select preferences for players to join. Only players who match all preferences will be able to see your post.</p>
               </Container>
             </Jumbotron>
             <form onSubmit={this.formSubmit}>
               <Row className="top-row">
                 <Col xs="12" sm="12" md="4" lg="4">
-                  <Card block className="date-card" inverse style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}>
+                  <Card block inverse className="date-card preference-card">
                     <CardTitle>Date of Round</CardTitle>
                       <FormGroup><DatePicker
                       selected={this.state.date}
@@ -148,7 +148,7 @@ formSubmit(e) {
                   </Card>
                 </Col>
                 <Col xs="12" sm="12" md="4" lg="4">
-                  <Card block inverse style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}>
+                  <Card block inverse className="preference-card">
                     <CardTitle>Current Group Size</CardTitle>
                       <FormGroup>
                      <Input type="select" name="select" id="group-size" onChange={this.sizeGroupVal}>
@@ -160,7 +160,7 @@ formSubmit(e) {
                   </Card>
                 </Col>
                 <Col xs="12" sm="12" md="4" lg="4">
-                  <Card block inverse style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}>
+                  <Card block inverse className="preference-card">
                     <CardTitle>Gender Preference</CardTitle>
                       <FormGroup>
                      <Input type="select" name="select" id="gender-group" onChange={this.genderVal}>
@@ -175,19 +175,19 @@ formSubmit(e) {
               <Row className="range-row">
               <FormGroup>
                 <div className="slider">
-                  <Label style={{color: '#475B5A'}}>Handicap</Label>
+                  <Label>Handicap</Label>
                   <Range min={0} max={40} defaultValue={[10, 20]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
               <FormGroup>
                 <div className="slider">
-                  <Label style={{color: 'white'}}>Age</Label>
+                  <Label>Age</Label>
                   <Range min={17} max={75} defaultValue={[25, 45]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
               </Row>
               <Row className="button-row">
-              <Button type="submit" style={{backgroundColor: '#475B5A', borderColor: '#475B5A', color: 'white'}}>
+              <Button type="submit" className="color-hit-orange">
                 Next
               </Button>
               </Row>

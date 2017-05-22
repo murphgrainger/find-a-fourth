@@ -2,12 +2,14 @@ import React from 'react';
 import {Button} from 'reactstrap';
 import moment from 'moment'
 
-import { CardDeck, Jumbotron, Container, CardColumns } from 'reactstrap';
+import { CardDeck, Jumbotron, Container } from 'reactstrap';
 
 
 import PostCard from './PostCard';
 
 import './search.css'
+import '../../App.css'
+
 
 const LOCAL_URL= 'http://localhost:4000'
 
@@ -25,16 +27,16 @@ componentDidMount() {
 
     render() {
         return (
-          <div className="container">
-            <Jumbotron fluid>
+          <div>
+            <Jumbotron fluid className="search-jumbotron">
               <Container fluid>
                 <h1 className="display-3">Join a Group</h1>
                 <p className="lead">Filter posts based on handicap, age, date, or group size.  Click "Join" to be added to the group.</p>
               </Container>
             </Jumbotron>
-            <CardColumns>
+            <div className="card-holder">
             {this.renderPosts()}
-          </CardColumns>
+          </div>
           </div>
         );
     }

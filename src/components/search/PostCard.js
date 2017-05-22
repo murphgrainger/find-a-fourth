@@ -12,7 +12,7 @@ class PostCard extends Component {
 
   render() {
     return (
-      <Card inverse style={{ backgroundColor: '#63B995', border:'none' }} className="PostCard">
+      <Card inverse className="post-card">
         <CardHeader className="date" inverse style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}><Icon name='calendar' size='2x'/> &nbsp;{this.props.post.date}</CardHeader>
           <CardBlock>
           <ListGroup>
@@ -21,7 +21,7 @@ class PostCard extends Component {
           <ListGroupItem className="preferences">{this.props.post.group_count} Players</ListGroupItem>
           </ListGroup>
         </CardBlock>
-        <CardFooter><Button block style={{ backgroundColor: '#475B5A', borderColor: '#475B5A', color: 'white'}}>Join</Button></CardFooter>
+        <CardFooter><Button block className="color-hit-orange">Join</Button></CardFooter>
       </Card>
     );
   }
