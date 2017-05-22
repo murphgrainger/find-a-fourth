@@ -22,7 +22,8 @@ class SearchPage extends React.Component {
     posts: [],
     handicapRange: [5, 35],
     ageRange: [17, 75],
-    groupSize: [1, 3]
+    groupSize: [1, 3],
+    genderVal: 'any'
   };
   this.getPosts = this.getPosts.bind(this);
 }
@@ -43,6 +44,10 @@ onChildSizeChanged(newState) {
     this.setState({ groupSize: newState })
   }
 
+onChildGenderChanged(newState) {
+    this.setState({ genderVal: newState.target.value })
+  }
+
     render() {
         return (
           <div>
@@ -56,9 +61,11 @@ onChildSizeChanged(newState) {
               initialHandicap={this.state.handicapRange}
               initialAge={this.state.ageRange}
               initialSize={this.state.groupSize}
+              initalGender={this.state.genderVal}
               callbackHandicapParent={(newState) => this.onChildHandicapChanged(newState) }
               callbackAgeParent={(newState) => this.onChildAgeChanged(newState) }
-              callbackSizeParent={(newState) => this.onChildSizeChanged(newState) }/>
+              callbackSizeParent={(newState) => this.onChildSizeChanged(newState) }
+              callbackGenderParent={(newState) => this.onChildGenderChanged(newState) }/>
             <div className="card-holder">
             {this.renderPosts()}
           </div>
@@ -105,7 +112,8 @@ onChildSizeChanged(newState) {
           !(post.age_min >= this.state.ageRange[1]) &&
           !(post.age_max <= this.state.ageRange[0]) &&
           post.group_count >= this.state.groupSize[0] &&
-          post.group_count <= this.state.groupSize[1]
+          post.group_count <= this.state.groupSize[1] &&
+          post.gender === this.state.genderVal
         })
 
       return filteredPosts.map(post => (

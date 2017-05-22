@@ -18,7 +18,7 @@ class PostCard extends Component {
           <ListGroup>
           <ListGroupItem className="preferences">{this.props.post.handicap_min} to {this.props.post.handicap_max} Index</ListGroupItem>
           <ListGroupItem className="preferences">{this.props.post.age_min} to {this.props.post.age_max} yrs</ListGroupItem>
-          <ListGroupItem className="preferences">{this.props.post.group_count} Players</ListGroupItem>
+          <ListGroupItem className="preferences">{this.props.post.group_count} Player(s)</ListGroupItem>
           </ListGroup>
         </CardBlock>
         <CardFooter><Button block className="color-hit-orange">Join</Button></CardFooter>

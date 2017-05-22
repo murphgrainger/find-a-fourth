@@ -164,9 +164,9 @@ formSubmit(e) {
                     <CardTitle>Gender Preference</CardTitle>
                       <FormGroup>
                      <Input type="select" name="select" id="gender-group" onChange={this.genderVal}>
-                       <option value="Any" defaultValue>Any</option>
-                       <option value="Male">Male</option>
-                       <option value="Female">Female</option>
+                       <option value="any" defaultValue>Any</option>
+                       <option value="male">Male</option>
+                       <option value="female">Female</option>
                      </Input>
                    </FormGroup>
                     </Card>

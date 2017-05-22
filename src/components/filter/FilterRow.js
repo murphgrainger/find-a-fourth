@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import './filter.css'
 import 'rc-slider/assets/index.css';
 
-import { Row, Col, Label, Card, ListGroup } from 'reactstrap';
+import { Row, Col, Label, Card, ListGroup, Input } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
@@ -53,6 +53,12 @@ const sizeMarks = {
   3: <strong>3</strong>,
 };
 
+const genderMarks = {
+  1: <strong>Any</strong>,
+  2: <strong>Male</strong>,
+  3: <strong>Female</strong>,
+};
+
 class FilterRow extends React.Component {
 
   constructor({initialHandicap, initialAge, initialSize}) {
@@ -65,6 +71,7 @@ class FilterRow extends React.Component {
   this.handicapValues = this.handicapValues.bind(this)
   this.ageValues = this.ageValues.bind(this)
   this.groupSizeVals = this.groupSizeVals.bind(this)
+  this.genderVal = this.genderVal.bind(this)
 
 }
 
@@ -92,6 +99,14 @@ groupSizeVals(arrVals) {
   this.props.callbackSizeParent(newState);
 }
 
+genderVal(arrVals) {
+  const newState = arrVals
+  this.setState({
+    genderVal: newState
+  });
+  this.props.callbackGenderParent(newState);
+}
+
     render() {
        const { redirect } = this.state;
        if (redirect) {
@@ -112,12 +127,22 @@ groupSizeVals(arrVals) {
                   <Range min={17} max={75} defaultValue={[this.state.ageRange[0], this.state.ageRange[1]]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                 </div>
               </Col>
-              <Col xs="12" md="4">
+              <Col xs="12" md="2">
               <div className="slider">
                 <Label>Group Size</Label>
                 <Range min={1} max={3} defaultValue={[this.state.groupSize[0], this.state.groupSize[1]]} marks={sizeMarks} onAfterChange={this.groupSizeVals}	tipFormatter={value => `${value}`} />
               </div>
             </Col>
+            <Col xs="12" md="2">
+            <div>
+              <Label>Gender</Label>
+                <Input type="select" name="select" id="gender-group" onChange={this.genderVal} className="gender-input">
+                  <option value="any" defaultValue>Any</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </Input>
+            </div>
+          </Col>
               </Row>
           </div>
         );
