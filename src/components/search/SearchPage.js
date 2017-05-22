@@ -92,7 +92,7 @@ onChildAgeChanged(newState) {
 
     renderPosts() {
       let filteredPosts = this.state.posts.filter((post) => {
-          return !(post.handicap_min >= this.state.handicapRange[1]) && !(post.handicap_max <= this.state.handicapRange[0])
+          return !(post.handicap_min >= this.state.handicapRange[1]) && !(post.handicap_max <= this.state.handicapRange[0]) && !(post.age_min >= this.state.ageRange[1]) && !(post.age_max <= this.state.ageRange[0])
         })
 
       return filteredPosts.map(post => (
