@@ -3,22 +3,40 @@ html, body {
 }
 
 .home-jumbotron {
-  /*background-image: url(../../images/redsky.JPG);*/
+  background-image: url('http://syntheticgrassexpert.com/wp-content/uploads/2013/10/artificial_grass1_1a.jpg');
   background-size: cover;
-  background-position: 0% 70%;
-  /*color: white;*/
-  margin-top: 1rem;
+  background-position: 0% 0%;
+  color: white;
   margin-bottom: 1rem;
   width: 100%;
   text-align: center;
 }
 
 .jumbotron-button{
-  margin: .5rem;
+  margin: 1rem;
+}
+
+.section {
+  width: 100%;
+  margin: 0;
+  padding: 2rem;
 }
 
 .section-break {
   width: 80%;
   border: 1px solid #475B5A;
   opacity: .25
+}
+
+.row-header {
+  font-size: 3rem;
+}
+
+.row-description {
+  font-size: 1.5rem;
+}
+
+.bullet {
+  font-size: 1.25rem;
+  padding-left: 1.5rem;
 }

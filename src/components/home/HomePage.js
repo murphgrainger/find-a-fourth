@@ -6,49 +6,51 @@ import { Grid, Row, Col, Jumbotron, Container, Button, Nav, Card, CardTitle, Car
 import Icon from 'react-fontawesome';
 
 import './home.css'
+import '../../App.css'
+
 
 class HomePage extends React.Component {
     render() {
         return (
-          <div className="container">
+          <div>
             <Jumbotron fluid className="home-jumbotron">
               <Container fluid>
                 <h1 className="display-3">Compatible Golf Groupings</h1>
                 <p className="lead">Search for an existing group that matches your preferences, or start one of your own.</p>
                   <p className="lead">
-              <Button color="primary" className="jumbotron-button" href='/search'>Search</Button>
-              <Button color="primary" className="jumbotron-button" href="/post">Post</Button>
+              <Button className="jumbotron-button color-hit-orange" size="lg" href='/search'>Search</Button>
+              <Button className="jumbotron-button color-hit-orange" size="lg" href="/post">Post</Button>
             </p>
               </Container>
             </Jumbotron>
-                <Row style={{width: '100%', padding:'1rem'}}>
+                <Row className="section">
                   <Col xs="12" md="8">
-                    <h2>Search</h2>
-                      <h6>Find an existing group based on search preferences.</h6>
-                      <p><Icon name='filter' size='1x'/>&nbsp; Handicap</p>
-                      <p> <Icon name='filter' size='1x'/>&nbsp; Age</p>
-                      <p><Icon name='filter' size='1x'/>&nbsp; Gender</p>
+                    <h2 className="row-header">Search</h2>
+                      <h6 className="row-description">Find an existing group based on search preferences.</h6>
+                      <p className="bullet"><Icon name='filter' size='1x'/>&nbsp; Handicap</p>
+                      <p className="bullet"> <Icon name='filter' size='1x'/>&nbsp; Age</p>
+                      <p className="bullet"><Icon name='filter' size='1x'/>&nbsp; Gender</p>
                       <p>
-                        <Button color="primary" href="/search">Search</Button>
+                        <Button className="color-hit-orange" href="/search">Try It Now</Button>
                       </p>
                   </Col>
-                  <Col xs="12" md="4">
+                  <Col xs="12" md="4" className="img-col">
                     <img src='https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=250'/>
                   </Col>
                   </Row>
                   <hr className="section-break"/>
-                  <Row style={{width: '100%', padding:'1rem'}}>
+                  <Row className="section">
                     <Col xs="12" md="4">
                       <img src='https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=250'/>
                   </Col>
                   <Col xs="12" md="8">
-                    <h2>Post</h2>
-                    <h6>Post an existing group with pre-selected preferences for the remaining golfers who will join.</h6>
-                    <p><Icon name='refresh' size='1x'/>&nbsp; Preferences sync with golfer profiles and include handicap, age, and gender</p>
-                    <p><Icon name='check' size='1x'/>&nbsp; Accept or reject join requests</p>
-                    <p><Icon name='user' size='1x'/>&nbsp; Contact accepted group member to confirm addition to course tee time</p>
+                    <h2 className="row-header">Post</h2>
+                    <h6 className="row-description">Post an existing group with pre-selected preferences for the remaining golfers who will join.</h6>
+                    <p className="bullet"><Icon name='refresh' size='1x'/>&nbsp; Preferences sync with golfer profiles and include handicap, age, and gender</p>
+                    <p className="bullet"><Icon name='check' size='1x'/>&nbsp; Accept or reject join requests</p>
+                    <p className="bullet"><Icon name='user' size='1x'/>&nbsp; Contact accepted group member to confirm addition to course tee time</p>
                   <p>
-                    <Button color="primary" href="/post">Post</Button>
+                    <Button className="color-hit-orange" href="/post">Start New Post</Button>
                   </p>
                   </Col>
                 </Row>

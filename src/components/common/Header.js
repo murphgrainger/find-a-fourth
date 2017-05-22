@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import LinkContainer from 'react-router-bootstrap/lib/LinkContainer';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 
+import '../../App.css'
+
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +25,7 @@ class Header extends Component {
 render() {
   return (
    <div>
-      <Navbar style={{backgroundColor: '#475B5A'}} light inverse toggleable>
+      <Navbar light color="faded" toggleable>
         <NavbarToggler right onClick={this.toggle} />
         <NavbarBrand href="/">Find a Fourth</NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>

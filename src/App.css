@@ -1,0 +1,35 @@
+.primary-color {
+  background: #63B995;
+  border-style: none;
+}
+
+.primary-color:hover {
+  background: #52D1DC;
+  border-style: none;
+  color: white;
+}
+
+.secondary-color {
+  background: #475B5A;
+  border-style: none;
+}
+
+.color-hit {
+  background: #52D1DC;
+  border-style: none;
+}
+
+.color-hit-orange {
+  background: #FFAF11;
+  border-style: none;
+}
+
+.accent-color {
+  background: #A3A9AA;
+  border-style: none;
+}
+
+.highlight-color {
+  background: #BBBBBF;
+  border-style: none;
+}
