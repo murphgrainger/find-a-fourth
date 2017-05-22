@@ -25,7 +25,7 @@ class Header extends Component {
 render() {
   return (
    <div>
-      <Navbar light color="faded" toggleable>
+      <Navbar light className="color-hit-orange" toggleable>
         <NavbarToggler right onClick={this.toggle} />
         <NavbarBrand href="/">Find a Fourth</NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>

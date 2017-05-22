@@ -30,7 +30,7 @@ class HomePage extends React.Component {
                       <p className="bullet"><Icon name='filter' size='1x'/>&nbsp; Handicap</p>
                       <p className="bullet"> <Icon name='filter' size='1x'/>&nbsp; Age</p>
                       <p className="bullet"><Icon name='filter' size='1x'/>&nbsp; Gender</p>
-                      <p>
+                      <p className="bullet">
                         <Button className="color-hit-orange" href="/search">Try It Now</Button>
                       </p>
                   </Col>
@@ -49,11 +49,14 @@ class HomePage extends React.Component {
                     <p className="bullet"><Icon name='refresh' size='1x'/>&nbsp; Preferences sync with golfer profiles and include handicap, age, and gender</p>
                     <p className="bullet"><Icon name='check' size='1x'/>&nbsp; Accept or reject join requests</p>
                     <p className="bullet"><Icon name='user' size='1x'/>&nbsp; Contact accepted group member to confirm addition to course tee time</p>
-                  <p>
+                  <p className="bullet">
                     <Button className="color-hit-orange" href="/post">Start New Post</Button>
                   </p>
                   </Col>
                 </Row>
+                <footer class="footer">
+                  <small>&copy; 2017 | Murph Grainger</small>
+                </footer>
             </div>
         );
     }
