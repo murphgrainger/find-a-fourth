@@ -16,3 +16,9 @@ html, body {
 .jumbotron-button{
   margin: .5rem;
 }
+
+.section-break {
+  width: 80%;
+  border: 1px solid #475B5A;
+  opacity: .25
+}
