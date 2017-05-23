@@ -56,77 +56,21 @@ const ageMarks = {
 
 class PostForm extends React.Component {
 
-  constructor(props) {
-  super(props);
-  this.state = {
-    date: moment(),
-    ageRange: [25, 45],
-    handicapRange: [10, 20],
-    gender: 'any',
-    sizeGroup: 1,
-    redirect: false
-};
-  this.timeReformat = this.timeReformat.bind(this);
-  this.handicapValues = this.handicapValues.bind(this)
-  this.ageValues = this.ageValues.bind(this)
-  this.handleChange = this.handleChange.bind(this)
-  this.formSubmit = this.formSubmit.bind(this)
-  this.genderVal = this.genderVal.bind(this)
-  this.sizeGroupVal = this.sizeGroupVal.bind(this)
-}
+  onFormSubmit(e) {
+    e.preventDefault()
+    console.log('changed');
+    console.log(this.state);
+      this.props.onFormSubmit(this.state);
+     }
 
-timeReformat(int) {
-  return moment(int, 'HH').format('ha')
-}
-
-handicapValues(arrVals) {
-  this.setState({
-    handicapRange: arrVals
-  });
-}
-
-ageValues(arrVals) {
-  this.setState({
-    ageRange: arrVals
-  });
-}
-
-handleChange(date) {
-  this.setState({
-    date: date
-  });
-}
-
-genderVal(e) {
-  this.setState({
-    gender: e.target.value
-  });
-}
-
-sizeGroupVal(e) {
-  this.setState({
-    sizeGroup: e.target.value
-  });
-}
-
-formSubmit(e) {
-  console.log(this.state);
-  e.preventDefault()
+  setInternalState(prop, val){
+    console.log({ prop, val });
     this.setState({
-      date: this.state.date,
-      ageRange: this.state.ageRange,
-      handicapRange: this.handicapRange,
-      gender: this.gender,
-      sizeGroup: this.sizeGroup,
-    });
-    this.postFunction(this.state)
-}
-
+      [prop]: val
+    })
+    console.log('state', this.state)
+  }
     render() {
-       const { redirect } = this.state;
-       if (redirect) {
-       return <Redirect to='/search'/>;
-     } 
         return (
           <div className="form-holder">
             <Jumbotron fluid className="search-jumbotron">
@@ -135,14 +79,14 @@ formSubmit(e) {
                 <p className="lead">Select preferences for players to join. Only players who match all preferences will be able to see your post.</p>
               </Container>
             </Jumbotron>
-            <form onSubmit={this.formSubmit}>
+            <form onSubmit={(e) => this.onFormSubmit(e)}>
               <Row className="top-row">
                 <Col xs="12" sm="12" md="4" lg="4">
                   <Card block inverse className="date-card preference-card">
                     <CardTitle>Date of Round</CardTitle>
                       <FormGroup><DatePicker
-                      selected={this.state.date}
-                      onChange={this.handleChange}
+                      selected={this.props.initialState.date}
+                      onChange={(date) => this.setInternalState('date', date.format('d'))}
                       className="date-picker"
                       /></FormGroup>
                   </Card>
@@ -151,7 +95,7 @@ formSubmit(e) {
                   <Card block inverse className="preference-card">
                     <CardTitle>Current Group Size</CardTitle>
                       <FormGroup>
-                     <Input type="select" name="select" id="group-size" onChange={this.sizeGroupVal}>
+                     <Input type="select" name="select" id="group-size" onChange={(e) => this.setInternalState('size', e.target.value)}>
                        <option value="1" defaultValue>1</option>
                        <option value="2">2</option>
                        <option value="3">3</option>
@@ -163,7 +107,7 @@ formSubmit(e) {
                   <Card block inverse className="preference-card">
                     <CardTitle>Gender Preference</CardTitle>
                       <FormGroup>
-                     <Input type="select" name="select" id="gender-group" onChange={this.genderVal}>
+                     <Input type="select" name="select" id="gender-group" onChange={(e) => this.setInternalState('gender', e.target.value)}>
                        <option value="any" defaultValue>Any</option>
                        <option value="male">Male</option>
                        <option value="female">Female</option>
@@ -176,13 +120,13 @@ formSubmit(e) {
               <FormGroup>
                 <div className="slider">
                   <Label>Handicap</Label>
-                  <Range min={0} max={40} defaultValue={[10, 20]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
+                  <Range min={0} max={40} defaultValue={[this.props.initialState.handicapRange[0], this.props.initialState.handicapRange[1]]} marks={handicapMarks} onAfterChange={(e) => this.setInternalState('handicapRange', e.target)}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
               <FormGroup>
                 <div className="slider">
                   <Label>Age</Label>
-                  <Range min={17} max={75} defaultValue={[25, 45]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
+                  <Range min={17} max={75} defaultValue={[this.props.initialState.ageRange[0], this.props.initialState.ageRange[1]]} marks={ageMarks} onAfterChange={(e) => this.setInternalState('ageRange', e.target)}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
               </Row>
