@@ -16,7 +16,6 @@ import moment from 'moment'
 import { Calendar, DateRange } from 'react-date-range';
 import DatePicker from 'react-datepicker';
 
-const LOCAL_URL= 'http://localhost:4000'
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 const Handle = Slider.Handle;
@@ -56,10 +55,17 @@ const ageMarks = {
 
 class PostForm extends React.Component {
 
+  constructor (props) {
+    super(props)
+    this.state = {
+      date: moment()
+    };
+    this.handleDateChange = this.handleDateChange.bind(this);
+  }
+
+
   onFormSubmit(e) {
     e.preventDefault()
-    console.log('changed');
-    console.log(this.state);
       this.props.onFormSubmit(this.state);
      }
 
@@ -68,10 +74,17 @@ class PostForm extends React.Component {
     this.setState({
       [prop]: val
     })
-
-    this.setState({redirect: true})
-    console.log('state', this.state)
+    console.log(this.state);
   }
+
+  handleDateChange(val) {
+    console.log(val);
+      this.setState({
+        date: val.format()
+      });
+      console.log(this.state);
+    }
+
     render() {
         return (
           <div className="form-holder">
@@ -87,8 +100,8 @@ class PostForm extends React.Component {
                   <Card block inverse className="date-card preference-card">
                     <CardTitle>Date of Round</CardTitle>
                       <FormGroup><DatePicker
-                      selected={this.props.initialState.date}
-                      onChange={(date) => this.setInternalState('date', date.format('d'))}
+                      selected={this.state.date}
+                      onChange={this.handleDateChange}
                       className="date-picker"
                       /></FormGroup>
                   </Card>
@@ -140,28 +153,6 @@ class PostForm extends React.Component {
               </form>
           </div>
         );
-    }
-
-    postFunction(state) {
-      let url = `${LOCAL_URL}/posts`;
-      fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify(state)
-      }).then(res => {
-        return res.json()
-      }).then(data => {
-        this.setState({
-          redirect: true
-        })
-        console.log(data);
-      }).catch(err => {
-        console.log(err)
-      })
     }
 }
 
