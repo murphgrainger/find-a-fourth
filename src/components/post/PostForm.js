@@ -68,6 +68,8 @@ class PostForm extends React.Component {
     this.setState({
       [prop]: val
     })
+
+    this.setState({redirect: true})
     console.log('state', this.state)
   }
     render() {
@@ -95,7 +97,7 @@ class PostForm extends React.Component {
                   <Card block inverse className="preference-card">
                     <CardTitle>Current Group Size</CardTitle>
                       <FormGroup>
-                     <Input type="select" name="select" id="group-size" onChange={(e) => this.setInternalState('size', e.target.value)}>
+                     <Input type="select" name="select" id="group-size" onChange={(e) => this.setInternalState('sizeGroup', e.target.value)}>
                        <option value="1" defaultValue>1</option>
                        <option value="2">2</option>
                        <option value="3">3</option>
@@ -120,13 +122,13 @@ class PostForm extends React.Component {
               <FormGroup>
                 <div className="slider">
                   <Label>Handicap</Label>
-                  <Range min={0} max={40} defaultValue={[this.props.initialState.handicapRange[0], this.props.initialState.handicapRange[1]]} marks={handicapMarks} onAfterChange={(e) => this.setInternalState('handicapRange', e.target)}	tipFormatter={value => `${value}`} />
+                  <Range min={0} max={40} defaultValue={[this.props.initialState.handicapRange[0], this.props.initialState.handicapRange[1]]} marks={handicapMarks} onAfterChange={(e) => this.setInternalState('handicapRange', e)}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
               <FormGroup>
                 <div className="slider">
                   <Label>Age</Label>
-                  <Range min={17} max={75} defaultValue={[this.props.initialState.ageRange[0], this.props.initialState.ageRange[1]]} marks={ageMarks} onAfterChange={(e) => this.setInternalState('ageRange', e.target)}	tipFormatter={value => `${value}`} />
+                  <Range min={17} max={75} defaultValue={[this.props.initialState.ageRange[0], this.props.initialState.ageRange[1]]} marks={ageMarks} onAfterChange={(e) => this.setInternalState('ageRange', e)}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
               </Row>
