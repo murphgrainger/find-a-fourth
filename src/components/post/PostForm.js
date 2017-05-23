@@ -126,7 +126,7 @@ formSubmit(e) {
        const { redirect } = this.state;
        if (redirect) {
        return <Redirect to='/search'/>;
-     }
+     } 
         return (
           <div className="form-holder">
             <Jumbotron fluid className="search-jumbotron">
