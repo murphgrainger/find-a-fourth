@@ -8,8 +8,26 @@
 
 .date {
   font-size: 1.25em;
+  padding-bottom: 0;
 }
 
 .preferences {
   color: #475B5A;
+}
+
+.user-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.date-col {
+  display: flex;
+  align-items: center;
+  padding-bottom: .5rem;
+}
+
+.user-col small {
+  font-size: 60%;
 }
