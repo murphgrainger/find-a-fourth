@@ -32,8 +32,7 @@ this.onChildChange = this.onChildChange.bind(this)
 }
 
   onChildChange(newState){
-    this.setState(newState, function() {
-    })
+    this.setState(newState)
     this.setState({toLocation: true})
    }
 
@@ -66,7 +65,7 @@ this.onChildChange = this.onChildChange.bind(this)
           <div>
             <PreviewPost
               initialState= {this.state}
-              submitFinalForm={this.postFunction(this.state)}/>
+              submitFinalForm={this.postFunction}/>
           </div>
         )
       }
@@ -74,23 +73,23 @@ this.onChildChange = this.onChildChange.bind(this)
 
 
         postFunction() {
-          console.log('will post all this as soon as preview is accepted!');
-          // let url = `${LOCAL_URL}/posts`;
-          // fetch(url, {
-          //   method: 'POST',
-          //   mode: 'cors',
-          //   headers: {
-          //       'Accept': 'application/json',
-          //       'Content-Type': 'application/json'
-          //     },
-          //   body: JSON.stringify(this.state)
-          // }).then(res => {
-          //   return res.json()
-          // }).then(data => {
-          //   this.setState({toLocation: true})
-          // }).catch(err => {
-          //   console.log(err)
-          // })
+          console.log('state that is posting', this.state);
+          let url = `${LOCAL_URL}/posts`;
+          fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(this.state)
+          }).then(res => {
+            return res.json()
+          }).then(data => {
+            this.setState({toLocation: true})
+          }).catch(err => {
+            console.log(err)
+          })
         }
 }
 
