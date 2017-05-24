@@ -70,19 +70,15 @@ class PostForm extends React.Component {
      }
 
   setInternalState(prop, val){
-    console.log({ prop, val });
     this.setState({
       [prop]: val
     })
-    console.log(this.state);
   }
 
   handleDateChange(val) {
-    console.log(val);
       this.setState({
-        date: val.format()
+        date: val
       });
-      console.log(this.state);
     }
 
     render() {

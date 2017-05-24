@@ -12,6 +12,7 @@ class PostPage extends React.Component {
   constructor(props) {
   super(props);
   this.state = {
+    date: moment(),
     ageRange: [25, 45],
     handicapRange: [15, 25],
     gender: 'any',
@@ -24,9 +25,7 @@ this.onChildChange = this.onChildChange.bind(this)
 }
 
   onChildChange(newState){
-    this.setState(newState)
-    console.log('parent', this.state);
-    this.postFunction(this.state)
+    this.postFunction(newState)
    }
 
 
@@ -56,9 +55,7 @@ this.onChildChange = this.onChildChange.bind(this)
           }).then(res => {
             return res.json()
           }).then(data => {
-            this.setState({
-              redirect: true
-            })
+            this.setState(state)
             console.log(data);
           }).catch(err => {
             console.log(err)
