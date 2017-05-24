@@ -1,0 +1,22 @@
+#autocomplete-input {
+  width: 100%;
+}
+
+#PlacesAutocomplete__root {
+  width: 65%;
+}
+
+
+.location-form {
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.autocomplete-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
