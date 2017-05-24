@@ -35,7 +35,6 @@ class LocationForm extends React.Component {
       address,
       loading: true
     })
-
     geocodeByAddress(address)
       .then((results) => {
         console.log(results);
@@ -43,7 +42,7 @@ class LocationForm extends React.Component {
         .then(({ lat, lng }) => {
           console.log('Success', { lat, lng })
           this.setState({
-            geocodeResults: (lat, lng),
+            geocodeResults: ([lat, lng]),
             loading: false
           })
         })
@@ -63,6 +62,23 @@ class LocationForm extends React.Component {
       geocodeResults: null
     })
   }
+
+  onFormSubmit(e) {
+    e.preventDefault()
+      this.props.onFormSubmit(this.state);
+     }
+
+  setInternalState(prop, val){
+    console.log({prop, val});
+    this.setState({
+      [prop]: val
+    })
+  }
+
+  componentDidMount() {
+    console.log(this.props.initialState);
+  }
+
 
     render() {
 
@@ -103,7 +119,7 @@ class LocationForm extends React.Component {
                 <p className="lead">List your post with a specific course, or region you'd like to play.</p>
               </Container>
             </Jumbotron>
-            <form onSubmit={this.formSubmit} className="location-form">
+            <form onSubmit={(e) => this.onFormSubmit(e)} className="location-form">
               <p>Enter a city, region, zip code, address, or specificc course name:</p>
               <Row>
                 <div className='container autocomplete-container'>
@@ -119,7 +135,7 @@ class LocationForm extends React.Component {
                 </div>
               </Row>
               <Row className="location-button-row">
-                <Button type="submit" className="highlight-color">
+                <Button className="highlight-color">
                   Back
                 </Button>
               <Button type="submit" className="color-hit-orange">

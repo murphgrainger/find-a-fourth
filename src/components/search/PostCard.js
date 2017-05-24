@@ -25,7 +25,7 @@ class PostCard extends Component {
           </CardHeader>
           <CardBlock>
           <ListGroup>
-          <ListGroupItem className="preferences"> <Icon name='map-marker' size='1x'/> &nbsp; Colorado Golf Club</ListGroupItem>
+          <ListGroupItem className="preferences"> <Icon name='map-marker' size='1x'/> &nbsp; {this.porps.post.address}</ListGroupItem>
           <ListGroupItem className="preferences">{this.props.post.handicap_min} to {this.props.post.handicap_max} Index</ListGroupItem>
           <ListGroupItem className="preferences">{this.props.post.age_min} to {this.props.post.age_max} yrs</ListGroupItem>
           </ListGroup>
