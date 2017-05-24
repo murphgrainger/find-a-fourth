@@ -27,8 +27,9 @@ this.onChildChange = this.onChildChange.bind(this)
 }
 
   onChildChange(newState){
-    this.postFunction(newState)
-    this.setState(newState)
+    this.setState(newState, function() {
+      this.postFunction();
+    })
    }
 
 
@@ -52,7 +53,7 @@ this.onChildChange = this.onChildChange.bind(this)
     }
 
 
-        postFunction(state) {
+        postFunction() {
           let url = `${LOCAL_URL}/posts`;
           fetch(url, {
             method: 'POST',
@@ -61,12 +62,11 @@ this.onChildChange = this.onChildChange.bind(this)
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
-            body: JSON.stringify(state)
+            body: JSON.stringify(this.state)
           }).then(res => {
             return res.json()
           }).then(data => {
             this.setState({toLocation: true})
-            console.log(this.state);
           }).catch(err => {
             console.log(err)
           })
