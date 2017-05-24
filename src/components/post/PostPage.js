@@ -1,6 +1,8 @@
 import React from 'react';
 
 import PostForm from './PostForm';
+import LocationForm from './LocationForm';
+
 import './post.css'
 
 import moment from 'moment'
@@ -17,7 +19,7 @@ class PostPage extends React.Component {
     handicapRange: [15, 25],
     gender: 'any',
     sizeGroup: 1,
-    redirect: false
+    toLocation: false
 };
 
 this.onChildChange = this.onChildChange.bind(this)
@@ -26,10 +28,18 @@ this.onChildChange = this.onChildChange.bind(this)
 
   onChildChange(newState){
     this.postFunction(newState)
+    this.setState(newState)
    }
 
 
     render() {
+      const toLocation = this.state.toLocation;
+      if (toLocation) {
+        return <div>
+                <LocationForm/>
+              </div>
+      } else {
+
         return (
           <div>
             <PostForm
@@ -37,8 +47,8 @@ this.onChildChange = this.onChildChange.bind(this)
               onFormSubmit={(newState) => this.onChildChange(newState) }
               initialState= {this.state}/>
           </div>
-
         );
+      }
     }
 
 
@@ -55,8 +65,8 @@ this.onChildChange = this.onChildChange.bind(this)
           }).then(res => {
             return res.json()
           }).then(data => {
-            this.setState(state)
-            console.log(data);
+            this.setState({toLocation: true})
+            console.log(this.state);
           }).catch(err => {
             console.log(err)
           })
