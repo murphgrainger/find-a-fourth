@@ -104,7 +104,8 @@ class LocationForm extends React.Component {
               </Container>
             </Jumbotron>
             <form onSubmit={this.formSubmit} className="location-form">
-              <Row className="top-row">
+              <p>Enter a city, region, zip code, address, or specificc course name:</p>
+              <Row>
                 <div className='container autocomplete-container'>
                   <div><Icon name='map-marker' size='2x'/>  &nbsp; &nbsp; &nbsp;  </div>
                           <PlacesAutocomplete
@@ -117,12 +118,12 @@ class LocationForm extends React.Component {
                     {this.state.loading ? <div><i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" /></div> : null}
                 </div>
               </Row>
-              <Row className="button-row">
-                <Button type="submit" className="color-hit-orange">
+              <Row className="location-button-row">
+                <Button type="submit" className="highlight-color">
                   Back
                 </Button>
               <Button type="submit" className="color-hit-orange">
-                Submit
+                Preview
               </Button>
               </Row>
               </form>
