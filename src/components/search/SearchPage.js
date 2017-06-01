@@ -114,7 +114,8 @@ onChildGenderChanged(newState) {
           !(post.age_max <= this.state.ageRange[0]) &&
           post.group_count >= this.state.groupSize[0] &&
           post.group_count <= this.state.groupSize[1] &&
-          post.gender === this.state.genderVal
+          (post.gender === this.state.genderVal ||
+          this.state.genderVal === 'any')
         })
 
       return filteredPosts.map(post => (

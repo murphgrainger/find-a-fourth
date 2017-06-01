@@ -147,28 +147,6 @@ genderVal(arrVals) {
           </div>
         );
     }
-
-    postFunction(state) {
-      let url = `${LOCAL_URL}/posts`;
-      fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify(state)
-      }).then(res => {
-        return res.json()
-      }).then(data => {
-        this.setState({
-          redirect: true
-        })
-        console.log(data);
-      }).catch(err => {
-        console.log(err)
-      })
-    }
 }
 
 export default FilterRow;
