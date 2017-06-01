@@ -1,6 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-
 
 import './post.css'
 import 'rc-slider/assets/index.css';

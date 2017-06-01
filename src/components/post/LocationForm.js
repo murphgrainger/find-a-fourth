@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 
 
 import './location.css'
@@ -106,11 +105,7 @@ class LocationForm extends React.Component {
         name: 'Demo__input',
         id: "autocomplete-input",
       }
-
-       const { redirect } = this.state;
-       if (redirect) {
-       return <Redirect to='/search'/>;
-     }
+      
         return (
           <div className="form-holder">
             <Jumbotron fluid className="search-jumbotron">

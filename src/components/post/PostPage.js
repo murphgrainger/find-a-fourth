@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
 
 import PostForm from './PostForm';
 import LocationForm from './LocationForm';
@@ -24,7 +25,8 @@ class PostPage extends React.Component {
     toLocation: false,
     toPreview: false,
     address: '',
-    geocodeResults: []
+    geocodeResults: [],
+    redirect: false
 };
 
 this.onChildChange = this.onChildChange.bind(this)
@@ -46,7 +48,11 @@ this.postFunction = this.postFunction.bind(this)
     render() {
       const toLocation = this.state.toLocation;
       const toPreview = this.state.toPreview;
-      if (toLocation) {
+      const { redirect } = this.state;
+      if (redirect) {
+      return <Redirect to='/search'/>
+      }
+      else if (toLocation) {
         return <div>
                 <LocationForm
                   initialState= {this.state}
@@ -86,7 +92,7 @@ this.postFunction = this.postFunction.bind(this)
           }).then(res => {
             return res.json()
           }).then(data => {
-            this.setState({toLocation: true})
+            this.setState({ redirect: true })
           }).catch(err => {
             console.log(err)
           })
