@@ -113,28 +113,21 @@ genderVal(arrVals) {
        return <Redirect to='/post'/>;
      }
         return (
-          <div>
-              <Row className="filter-row">
-                <Col xs="12" md="4">
-                <div className="slider">
+          <Col xs="12" md="3" className="filter-col">
+            <h2>Filters</h2>
+                <div className="filter-row">
                   <Label>Handicap</Label>
                   <Range min={0} max={40} defaultValue={[this.state.handicapRange[0], this.state.handicapRange[1]]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
                 </div>
-                </Col>
-                <Col xs="12" md="4">
-                <div className="slider">
+                <div className="filter-row">
                   <Label>Age</Label>
                   <Range min={17} max={75} defaultValue={[this.state.ageRange[0], this.state.ageRange[1]]} marks={ageMarks} onAfterChange={this.ageValues}	tipFormatter={value => `${value}`} />
                 </div>
-              </Col>
-              <Col xs="12" md="2">
-              <div className="slider">
+                <div className="filter-row">
                 <Label>Group Size</Label>
                 <Range min={1} max={3} defaultValue={[this.state.groupSize[0], this.state.groupSize[1]]} marks={sizeMarks} onAfterChange={this.groupSizeVals}	tipFormatter={value => `${value}`} />
               </div>
-            </Col>
-            <Col xs="12" md="2">
-            <div>
+            <div className="filter-row">
               <Label>Gender</Label>
                 <Input type="select" name="select" id="gender-group" onChange={this.genderVal} className="gender-input">
                   <option value="any" defaultValue>Any</option>
@@ -143,8 +136,6 @@ genderVal(arrVals) {
                 </Input>
             </div>
           </Col>
-              </Row>
-          </div>
         );
     }
 }

@@ -1,8 +1,29 @@
 .search-jumbotron {
   width: 100%;
   text-align: center;
-  padding: 2.25rem;
+  padding: 2rem;
   margin: 0;
+  background-color: #FFAF11;
+}
+
+.search-holder {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-col {
+  padding: 0;
+}
+
+.filter-col {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  background: #EFEFEF;
+}
+
+.filter-container {
+  width: 100%;
 }
 
 .card-holder {

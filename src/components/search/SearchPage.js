@@ -2,7 +2,7 @@ import React from 'react';
 import {Button} from 'reactstrap';
 import moment from 'moment'
 
-import { CardDeck, Jumbotron, Container } from 'reactstrap';
+import { CardDeck, Jumbotron, Container, Col } from 'reactstrap';
 
 import FilterRow from '../filter/FilterRow';
 import PostCard from './PostCard';
@@ -51,24 +51,28 @@ onChildGenderChanged(newState) {
     render() {
         return (
           <div>
-            <Jumbotron fluid className="search-jumbotron">
-              <Container fluid>
-                <h1 className="display-3">Join a Group</h1>
-                <p className="lead">Filter posts based on handicap, age, date, or group size.  Click "Join" to be added to the group.</p>
-              </Container>
-            </Jumbotron>
-            <FilterRow
-              initialHandicap={this.state.handicapRange}
-              initialAge={this.state.ageRange}
-              initialSize={this.state.groupSize}
-              initalGender={this.state.genderVal}
-              callbackHandicapParent={(newState) => this.onChildHandicapChanged(newState) }
-              callbackAgeParent={(newState) => this.onChildAgeChanged(newState) }
-              callbackSizeParent={(newState) => this.onChildSizeChanged(newState) }
-              callbackGenderParent={(newState) => this.onChildGenderChanged(newState) }/>
-            <div className="card-holder">
-            {this.renderPosts()}
-          </div>
+            <div className="search-holder">
+              <FilterRow
+                initialHandicap={this.state.handicapRange}
+                initialAge={this.state.ageRange}
+                initialSize={this.state.groupSize}
+                initalGender={this.state.genderVal}
+                callbackHandicapParent={(newState) => this.onChildHandicapChanged(newState) }
+                callbackAgeParent={(newState) => this.onChildAgeChanged(newState) }
+                callbackSizeParent={(newState) => this.onChildSizeChanged(newState) }
+                callbackGenderParent={(newState) => this.onChildGenderChanged(newState) }/>
+              <Col xs="12" md="9" className="card-col">
+                <div className="search-jumbotron">
+                  <Container fluid>
+                    <h3>Join a Group</h3>
+                    <p>Filter posts based on handicap, age, date, or group size.  Click "Join" to be added to the group.</p>
+                  </Container>
+                </div>
+              <div className="card-holder">
+                {this.renderPosts()}
+              </div>
+              </Col>
+            </div>
           </div>
         );
     }
