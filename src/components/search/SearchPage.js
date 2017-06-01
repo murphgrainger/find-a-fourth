@@ -93,6 +93,7 @@ onChildGenderChanged(newState) {
       }).then(res => {
         return res.json()
       }).then(data => {
+        console.log(data);
         data.sort(function (left, right) {
         return moment.utc(left.date).diff(moment.utc(right.date))
       });
