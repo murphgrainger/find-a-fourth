@@ -28,7 +28,8 @@ class PostPage extends React.Component {
 };
 
 this.onChildChange = this.onChildChange.bind(this)
-
+this.onLocationChange = this.onLocationChange.bind(this)
+this.postFunction = this.postFunction.bind(this)
 }
 
   onChildChange(newState){
@@ -73,7 +74,6 @@ this.onChildChange = this.onChildChange.bind(this)
 
 
         postFunction() {
-          console.log('state that is posting', this.state);
           let url = `${LOCAL_URL}/posts`;
           fetch(url, {
             method: 'POST',

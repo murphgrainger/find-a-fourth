@@ -18,6 +18,9 @@ class PreviewPost extends React.Component {
     super(props)
 }
 
+componentDidMount() {
+}
+
     render() {
         return (
           <div className="form-holder">
@@ -46,7 +49,10 @@ class PreviewPost extends React.Component {
                 <ListGroupItem className="preferences"> {this.props.initialState.ageRange[0]} to {this.props.initialState.ageRange[1]} yrs</ListGroupItem>
                 </ListGroup>
               </CardBlock>
-              <CardFooter><Button block className="color-hit-orange" onClick={this.props.submitFinalForm}>Submit Post</Button></CardFooter>
+              <CardFooter>
+                <Button className="accent-color" onClick={this.props.submitFinalForm}>Edit</Button>
+                <Button className="color-hit-orange" onClick={this.props.submitFinalForm}>Submit</Button>
+                </CardFooter>
             </Card>
           </div>
         );
