@@ -1,33 +1,19 @@
-.list-group-item {
-  color: black;
+.course-card {
+  margin: 1rem;
 }
 
-.card-footer {
-  text-align: center;
+.card-row {
+  display: flex;
 }
 
-.date {
-  font-size: 1.25em;
-  padding-bottom: 0;
-}
-
-.preferences {
-  color: #475B5A;
-}
-
-.user-col {
+.centered-col {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 
-.date-col {
+.location-col {
   display: flex;
   align-items: center;
-  padding-bottom: .5rem;
-}
-
-.user-col small {
-  font-size: 60%;
 }

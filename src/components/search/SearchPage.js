@@ -51,6 +51,12 @@ onChildGenderChanged(newState) {
     render() {
         return (
           <div>
+            <div className="search-jumbotron">
+              <Container fluid>
+                <h3>Join a Group</h3>
+                <p>Filter posts based on handicap, age, date, or group size.  Click "Join" to be added to the group.</p>
+              </Container>
+            </div>
             <div className="search-holder">
               <FilterRow
                 initialHandicap={this.state.handicapRange}
@@ -62,12 +68,7 @@ onChildGenderChanged(newState) {
                 callbackSizeParent={(newState) => this.onChildSizeChanged(newState) }
                 callbackGenderParent={(newState) => this.onChildGenderChanged(newState) }/>
               <Col xs="12" md="9" className="card-col">
-                <div className="search-jumbotron">
-                  <Container fluid>
-                    <h3>Join a Group</h3>
-                    <p>Filter posts based on handicap, age, date, or group size.  Click "Join" to be added to the group.</p>
-                  </Container>
-                </div>
+
               <div className="card-holder">
                 {this.renderPosts()}
               </div>
