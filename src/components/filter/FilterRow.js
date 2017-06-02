@@ -113,7 +113,7 @@ genderVal(arrVals) {
        return <Redirect to='/post'/>;
      }
         return (
-          <Col xs="12" md="3" className="filter-col">
+          <Col xs="12" sm="12" md="3" className="filter-col">
             <h2>Filters</h2>
                 <div className="filter-row">
                   <Label>Handicap</Label>

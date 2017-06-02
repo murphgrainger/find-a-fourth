@@ -67,8 +67,7 @@ onChildGenderChanged(newState) {
                 callbackAgeParent={(newState) => this.onChildAgeChanged(newState) }
                 callbackSizeParent={(newState) => this.onChildSizeChanged(newState) }
                 callbackGenderParent={(newState) => this.onChildGenderChanged(newState) }/>
-              <Col xs="12" md="9" className="card-col">
-
+              <Col xs="12" sm="12" md="9" className="card-col">
               <div className="card-holder">
                 {this.renderPosts()}
               </div>

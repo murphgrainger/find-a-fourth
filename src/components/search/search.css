@@ -44,3 +44,10 @@
   width: 20rem;
   background-color: rgb(71, 91, 90);
 }
+
+@media (max-width: 766px) {
+  .search-holder {
+    display: flex;
+    flex-direction: column;
+  }
+}
