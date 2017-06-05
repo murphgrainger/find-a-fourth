@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-import { Grid, Row, Col, Form, FieldGroup, Checkbox, Radio, FormControl, Button, FormGroup, ControlLabel, Container } from 'reactstrap';
+import { Grid, Row, Col, Form, FormControl, Button, ButtonGroup, FormGroup, ControlLabel, Container } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
@@ -25,11 +25,12 @@ class ProfilePage extends React.Component {
             </div>
             <div className="search-holder">
               <Col xs="12" sm="12" md="3" className="sidebar">
-                <ul>
-                  <li>Profile</li>
-                  <li>Location</li>
-                  <li>Preferences</li>
-                </ul>
+                <ButtonGroup vertical>
+                  <Button className="nav-options">Profile</Button>
+                  <Button className="nav-options">Location</Button>
+                  <Button className="nav-options">Posts</Button>
+                  <Button className="nav-options">Join Requests</Button>
+                </ButtonGroup>
               </Col>
               <Col xs="12" sm="12" md="9" className="profile-info">
 

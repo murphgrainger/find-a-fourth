@@ -5,13 +5,17 @@ html, body {
 .sidebar {
   background-color: #EFEFEF;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh;
 }
 
-.sidebar ul {
-  padding: 1.25rem;
+.sidebar .btn-group-vertical {
+  padding-top: 1.5rem;
+  width: 100%;
 }
 
-.sidebar ul li {
-  list-style: none;
-  padding: .25rem .5rem;
+.nav-options {
+  padding: 1rem;
 }
