@@ -12,7 +12,7 @@ import './search.css'
 import '../../App.css'
 
 
-const LOCAL_URL= 'http://localhost:4000'
+const SERVER_URL= getUrl()
 
 
 class SearchPage extends React.Component {
@@ -90,7 +90,8 @@ onChildGenderChanged(newState) {
     // }
 
     getPosts() {
-      let url = `${LOCAL_URL}/posts`;
+      let url = `${SERVER_URL}/posts`;
+      console.log('url to post to:', url);
       fetch(url, {
         method: 'get',
         mode: 'cors'
@@ -129,9 +130,15 @@ onChildGenderChanged(newState) {
         />
       ));
     }
-
-
-
 }
+
+function getUrl() {
+  console.log('current window location:', window.location.host);
+   if (window.location.host.indexOf('localhost') != -1) {
+       return 'http://localhost:4000';
+   } else {
+       return 'https://findafourth.herokuapp.com';
+   }
+ }
 
 export default SearchPage;
