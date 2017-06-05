@@ -107,7 +107,7 @@ class PostForm extends React.Component {
                     <CardTitle>Current Group Size</CardTitle>
                       <FormGroup>
                      <Input type="select" name="select" id="group-size" onChange={(e) => this.setInternalState('sizeGroup', e.target.value)}>
-                       <option value="1" defaultValue>1</option>
+                       <option value="1">1</option>
                        <option value="2">2</option>
                        <option value="3">3</option>
                      </Input>
@@ -119,7 +119,7 @@ class PostForm extends React.Component {
                     <CardTitle>Gender Preference</CardTitle>
                       <FormGroup>
                      <Input type="select" name="select" id="gender-group" onChange={(e) => this.setInternalState('gender', e.target.value)}>
-                       <option value="any" defaultValue>Any</option>
+                       <option value="any">Any</option>
                        <option value="male">Male</option>
                        <option value="female">Female</option>
                      </Input>

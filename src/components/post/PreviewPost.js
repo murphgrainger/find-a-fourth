@@ -11,14 +11,6 @@ import { Row, Col, Form, Checkbox, Input, FormControl, Button, FormGroup, Contro
 
 
 class PreviewPost extends React.Component {
-
-  constructor (props) {
-    super(props)
-}
-
-componentDidMount() {
-}
-
     render() {
         return (
           <div className="form-holder">
@@ -29,26 +21,27 @@ componentDidMount() {
               </Container>
             </Jumbotron>
 
-            <Card inverse className="post-card">
-              <CardHeader className="date" style={{ backgroundColor: '#475B5A', borderColor: '#475B5A' }}>
-                <Row>
-                <Col xs="10" lg="10" className="date-col">
-                <Icon name='calendar'/> &nbsp; {this.props.initialState.date.utc().format('ddd, MMM Do')}
-                </Col>
-                <Col xs="2" lg="2" className="user-col">
-                <Icon name='user'/> <small>{this.props.initialState.sizeGroup}</small>
-                </Col>
-                </Row>
-                </CardHeader>
-                <CardBlock>
-                <ListGroup>
-                <ListGroupItem className="preferences"> <Icon name='map-marker'/> &nbsp; {this.props.initialState.address}</ListGroupItem>
-                <ListGroupItem className="preferences"> {this.props.initialState.handicapRange[0]} to {this.props.initialState.handicapRange[1]} Index</ListGroupItem>
-                <ListGroupItem className="preferences"> {this.props.initialState.ageRange[0]} to {this.props.initialState.ageRange[1]} yrs</ListGroupItem>
-                </ListGroup>
+            <Card className="course-card">
+              <CardHeader>  <Icon name='calendar'/> &nbsp; {this.props.initialState.date.utc().format('ddd, MMM Do')}</CardHeader>
+              <CardBlock className="card-row">
+              <Col xs="12" md="4" className="location-col">
+                <p><Icon name='map-marker'/> &nbsp; {this.props.initialState.address}</p>
+              </Col>
+              <Col xs="12" md="3" className="centered-col">
+                <small>Age Range</small>
+                <p>{this.props.initialState.ageRange[0]} - {this.props.initialState.ageRange[1]}</p>
+              </Col>
+              <Col xs="12" md="3" className="centered-col">
+                <small>Handicap Range</small>
+                <p>{this.props.initialState.handicapRange[0]} - {this.props.initialState.handicapRange[1]}</p>
+              </Col>
+              <Col xs="12" md="2" className="centered-col">
+                <small>Group Count</small>
+                <p>{this.props.initialState.sizeGroup}</p>
+              </Col>
               </CardBlock>
-              <CardFooter>
-                <Button className="accent-color" onClick={this.props.submitFinalForm}>Edit</Button>
+              <CardFooter className="footer-buttons">
+                <Button className="accent-color" onClick={this.props.editForm}>Edit</Button>
                 <Button className="color-hit-orange" onClick={this.props.submitFinalForm}>Submit</Button>
                 </CardFooter>
             </Card>

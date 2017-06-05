@@ -72,3 +72,14 @@ form {
   display: flex;
   justify-content: center;
 }
+
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-buttons Button {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}

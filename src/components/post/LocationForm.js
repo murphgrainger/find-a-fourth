@@ -36,7 +36,6 @@ class LocationForm extends React.Component {
     })
     geocodeByAddress(address)
       .then((results) => {
-        console.log(results);
         getLatLng(results[0])
         .then(({ lat, lng }) => {
           console.log('Success', { lat, lng })
@@ -105,7 +104,7 @@ class LocationForm extends React.Component {
         name: 'Demo__input',
         id: "autocomplete-input",
       }
-      
+
         return (
           <div className="form-holder">
             <Jumbotron fluid className="search-jumbotron">

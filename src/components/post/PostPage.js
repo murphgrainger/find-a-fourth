@@ -32,6 +32,8 @@ class PostPage extends React.Component {
 this.onChildChange = this.onChildChange.bind(this)
 this.onLocationChange = this.onLocationChange.bind(this)
 this.postFunction = this.postFunction.bind(this)
+this.editPostForm = this.editPostForm.bind(this)
+
 }
 
   onChildChange(newState){
@@ -72,12 +74,18 @@ this.postFunction = this.postFunction.bind(this)
           <div>
             <PreviewPost
               initialState= {this.state}
+              editForm = {this.editPostForm}
               submitFinalForm={this.postFunction}/>
           </div>
         )
       }
     }
 
+      editPostForm() {
+        console.log('Need to edit this form!');
+        this.setState({toLocation: false, toPreview: false
+        })
+      }
 
         postFunction() {
           let url = `${LOCAL_URL}/posts`;
