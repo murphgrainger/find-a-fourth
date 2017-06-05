@@ -108,7 +108,9 @@ this.editPostForm = this.editPostForm.bind(this)
 }
 
 function getUrl() {
+  console.log(window.location.host);
    if (window.location.host.indexOf('localhost') != -1) {
+     console.log(true);
        return 'http://localhost:4000';
    } else {
        return 'https://findafourth.herokuapp.com/';
