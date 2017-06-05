@@ -36,8 +36,7 @@ const handicapMarks = {
   0: <strong>0</strong>,
   10: '10',
   20: '20',
-  30: '30',
-  40: <strong>40</strong>,
+  30: <strong>30</strong>,
 };
 
 const ageMarks = {
@@ -117,7 +116,7 @@ genderVal(arrVals) {
             <h2>Filters</h2>
                 <div className="filter-row">
                   <Label>Handicap</Label>
-                  <Range min={0} max={40} defaultValue={[this.state.handicapRange[0], this.state.handicapRange[1]]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
+                  <Range min={0} max={30} defaultValue={[this.state.handicapRange[0], this.state.handicapRange[1]]} marks={handicapMarks} onAfterChange={this.handicapValues}	tipFormatter={value => `${value}`} />
                 </div>
                 <div className="filter-row">
                   <Label>Age</Label>

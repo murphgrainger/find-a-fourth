@@ -39,8 +39,7 @@ const handicapMarks = {
   0: <strong>0</strong>,
   10: '10',
   20: '20',
-  30: '30',
-  40: <strong>40</strong>,
+  30: <strong>30</strong>
 };
 
 const ageMarks = {
@@ -131,7 +130,7 @@ class PostForm extends React.Component {
               <FormGroup>
                 <div className="slider">
                   <Label>Handicap</Label>
-                  <Range min={0} max={40} defaultValue={[this.props.initialState.handicapRange[0], this.props.initialState.handicapRange[1]]} marks={handicapMarks} onAfterChange={(e) => this.setInternalState('handicapRange', e)}	tipFormatter={value => `${value}`} />
+                  <Range min={0} max={30} defaultValue={[this.props.initialState.handicapRange[0], this.props.initialState.handicapRange[1]]} marks={handicapMarks} onAfterChange={(e) => this.setInternalState('handicapRange', e)}	tipFormatter={value => `${value}`} />
                 </div>
               </FormGroup>
               <FormGroup>
