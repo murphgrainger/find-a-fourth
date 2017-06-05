@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import JoinModal from './JoinModal';
 import './card.css';
 
 import { Card, Button, CardHeader, CardText, Row, Col, CardDeck, ListGroup, ListGroupItem, CardBlock, CardFooter, CardTitle, CardSubtitle } from 'reactstrap';
@@ -31,7 +33,7 @@ class PostCard extends Component {
           <p>{this.props.post.group_count}</p>
         </Col>
         <Col xs="12" md="2" className="centered-col">
-          <Button block className="color-hit-orange">Join</Button>
+          <JoinModal post={this.props.post}/>
         </Col>
         </CardBlock>
       </Card>
