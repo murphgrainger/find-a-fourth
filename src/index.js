@@ -25,6 +25,9 @@ ReactDOM.render(
       <Route path="/profile" component={Profile}/>
       <Route path="/search" component={Search}/>
       <Route path="/post" component={Post}/>
+      <footer class="footer">
+        <small>&copy; 2017 | Murph Grainger</small>
+      </footer>
     </div>
   </Router>,
   document.getElementById('root')

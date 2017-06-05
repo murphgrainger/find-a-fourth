@@ -54,9 +54,6 @@ class HomePage extends React.Component {
                   </p>
                   </Col>
                 </Row>
-                <footer class="footer">
-                  <small>&copy; 2017 | Murph Grainger</small>
-                </footer>
             </div>
         );
     }

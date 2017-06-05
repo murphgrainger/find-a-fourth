@@ -1,0 +1,17 @@
+html, body {
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: #EFEFEF;
+  height: 100%;
+}
+
+.sidebar ul {
+  padding: 1.25rem;
+}
+
+.sidebar ul li {
+  list-style: none;
+  padding: .25rem .5rem;
+}
