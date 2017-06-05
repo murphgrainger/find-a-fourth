@@ -10,7 +10,7 @@ import './post.css'
 
 import moment from 'moment'
 
-const LOCAL_URL = 'http://localhost:4000'
+const SERVER_URL = getUrl()
 
 class PostPage extends React.Component {
 
@@ -104,6 +104,14 @@ this.editPostForm = this.editPostForm.bind(this)
           }).catch(err => {
             console.log(err)
           })
+        }
+
+        function getUrl() {
+          if (window.location.host.indexOf('localhost') != -1) {
+              return 'http://localhost:4000';
+          } else {
+              return 'https://findafourth.herokuapp.com/';
+          }
         }
 }
 
