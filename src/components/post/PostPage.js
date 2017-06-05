@@ -88,7 +88,7 @@ this.editPostForm = this.editPostForm.bind(this)
       }
 
         postFunction() {
-          let url = `${LOCAL_URL}/posts`;
+          let url = `${SERVER_URL}/posts`;
           fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -105,14 +105,14 @@ this.editPostForm = this.editPostForm.bind(this)
             console.log(err)
           })
         }
-
-        function getUrl() {
-          if (window.location.host.indexOf('localhost') != -1) {
-              return 'http://localhost:4000';
-          } else {
-              return 'https://findafourth.herokuapp.com/';
-          }
-        }
 }
+
+function getUrl() {
+   if (window.location.host.indexOf('localhost') != -1) {
+       return 'http://localhost:4000';
+   } else {
+       return 'https://findafourth.herokuapp.com/';
+   }
+ }
 
 export default PostPage;
