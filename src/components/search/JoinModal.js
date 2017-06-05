@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, CardHeader, Card, CardBlock, Row } from 'reactstrap';
 import PostCard from './PostCard';
 
+import Icon from 'react-fontawesome';
 
 class JoinModal extends React.Component {
   constructor(props) {
@@ -27,8 +28,46 @@ class JoinModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Confirm Join Request</ModalHeader>
           <ModalBody>
-            {this.props.post.address}
-            {this.props.post.date}
+            <Row>
+            <Col sm='12' md='6'>
+            <Card className="preview-card">
+              <CardHeader>Post</CardHeader>
+              <CardBlock className="card-column">
+                <p><Icon name='calendar'/> &nbsp; {this.props.post.date} </p>
+                <p><Icon name='map-marker'/> &nbsp; {this.props.post.address}</p>
+                <Row>
+                  <Col sm="12" md="6" className="preview-card-detail-col">
+                <small>Age Range</small>
+                <p>{this.props.post.age_min} - {this.props.post.age_max}</p>
+                </Col>
+                  <Col sm="12" md="6" className="preview-card-detail-col">
+                <small>Handicap Range</small>
+                <p>{this.props.post.handicap_min} - {this.props.post.handicap_max}</p>
+                </Col>
+              </Row>
+              </CardBlock>
+            </Card>
+          </Col>
+            <Col sm='12' md='6'>
+              <Card className="preview-card">
+                <CardHeader> Profile </CardHeader>
+                <CardBlock className="card-column">
+                  <p><Icon name='user'/> &nbsp; Johnny Jones</p>
+                  <p><Icon name='map-marker'/> &nbsp; Sunnyside, CO</p>
+                  <Row>
+                  <Col sm="12" md="6" className="preview-card-detail-col">
+                    <small>Age</small>
+                    <p>25</p>
+                  </Col>
+                  <Col sm="12" md="6" className="preview-card-detail-col">
+                    <small>Handicap</small>
+                    <p>8</p>
+                  </Col>
+                </Row>
+                </CardBlock>
+              </Card>
+            </Col>
+            </Row>
           </ModalBody>
           <ModalFooter>
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
