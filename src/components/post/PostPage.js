@@ -17,6 +17,7 @@ class PostPage extends React.Component {
   constructor(props) {
   super(props);
   this.state = {
+    currentUserId: 1,
     date: moment(),
     ageRange: [25, 45],
     handicapRange: [15, 25],
