@@ -37,6 +37,10 @@ this.editPostForm = this.editPostForm.bind(this)
 
 }
 
+  componentDidMount() {
+    console.log('hi');
+  }
+
   onChildChange(newState){
     this.setState(newState)
     this.setState({toLocation: true})
