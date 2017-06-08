@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import LinkContainer from 'react-router-bootstrap/lib/LinkContainer';
-import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
+import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button} from 'reactstrap';
 
 import '../../App.css'
 
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.toggle = this.toggle.bind(this);
     this.state = {
@@ -22,7 +22,21 @@ class Header extends Component {
     });
   }
 
+  goTo(route) {
+  this.props.history.replace(`/${route}`)
+  }
+
+  login() {
+    this.props.auth.login();
+  }
+
+  logout() {
+    this.props.auth.logout();
+  }
+
 render() {
+  const { isAuthenticated } = this.props.auth;
+
   return (
    <div>
       <Navbar light color="faded" toggleable>
@@ -30,15 +44,32 @@ render() {
         <NavbarBrand href="/">Find a Fourth</NavbarBrand>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/search/">Search</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/post/">Post</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/profile/">Profile</NavLink>
-            </NavItem>
+              {
+              !isAuthenticated() && (
+                <NavItem>
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.login.bind(this)}
+                  >
+                    Log In
+                  </Button>
+                </NavItem>
+                )
+            }
+            {
+              isAuthenticated() && (
+                <NavItem>
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.logout.bind(this)}
+                  >
+                    Log Out
+                  </Button>
+                </NavItem>
+                )
+            }
           </Nav>
         </Collapse>
       </Navbar>

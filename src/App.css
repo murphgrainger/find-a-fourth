@@ -20,8 +20,8 @@
 }
 
 .color-hit-orange {
-  background: #FFAF11;
-  border-style: none;
+  background: #FFAF11!important;
+  border-style: none!important;
 }
 
 .accent-color {

@@ -27,9 +27,9 @@ class HomePage extends React.Component {
                   <Col xs="12" md="8">
                     <h2 className="row-header">Search</h2>
                       <h6 className="row-description">Find an existing group based on search preferences.</h6>
-                      <p className="bullet"><Icon name='filter' size='1x'/>&nbsp; Handicap</p>
-                      <p className="bullet"> <Icon name='filter' size='1x'/>&nbsp; Age</p>
-                      <p className="bullet"><Icon name='filter' size='1x'/>&nbsp; Gender</p>
+                      <p className="bullet"><Icon name='filter'/>&nbsp; Handicap</p>
+                      <p className="bullet"> <Icon name='filter'/>&nbsp; Age</p>
+                      <p className="bullet"><Icon name='filter'/>&nbsp; Gender</p>
                       <p className="bullet">
                         <Button className="color-hit-orange" href="/search">Try It Now</Button>
                       </p>
@@ -46,9 +46,9 @@ class HomePage extends React.Component {
                   <Col xs="12" md="8">
                     <h2 className="row-header">Post</h2>
                     <h6 className="row-description">Post an existing group with pre-selected preferences for the remaining golfers who will join.</h6>
-                    <p className="bullet"><Icon name='refresh' size='1x'/>&nbsp; Preferences sync with golfer profiles and include handicap, age, and gender</p>
-                    <p className="bullet"><Icon name='check' size='1x'/>&nbsp; Accept or reject join requests</p>
-                    <p className="bullet"><Icon name='user' size='1x'/>&nbsp; Contact accepted group member to confirm addition to course tee time</p>
+                    <p className="bullet"><Icon name='refresh'/>&nbsp; Preferences sync with golfer profiles and include handicap, age, and gender</p>
+                    <p className="bullet"><Icon name='check'/>&nbsp; Accept or reject join requests</p>
+                    <p className="bullet"><Icon name='user'/>&nbsp; Contact accepted group member to confirm addition to course tee time</p>
                   <p className="bullet">
                     <Button className="color-hit-orange" href="/post">Start New Post</Button>
                   </p>

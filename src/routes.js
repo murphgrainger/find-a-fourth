@@ -29,28 +29,14 @@ const handleAuthentication = (nextState, replace) => {
   }
 }
 
-// ReactDOM.render(
-//   <Router>
-//     <div>
-//       <Header />
-//       <Route exact path="/" component={Home}/>
-//       <Route path="/profile" component={Profile}/>
-//       <Route path="/search" component={Search}/>
-//       <Route path="/post" component={Post}/>
-//       <footer className="footer">
-//         <small>&copy; 2017 | Murph Grainger</small>
-//       </footer>
-//     </div>
-//   </Router>,
-//   document.getElementById('root')
-// );
-
 export const makeMainRoutes = () => {
   return (
       <Router history={history} component={App}>
         <div>
           <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+          <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
           <Route path="/posts" render={(props) => <Post auth={auth} {...props} />} />
+          <Route path="/search" render={(props) => <Search auth={auth} {...props} />} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
