@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router';
 
 import { Row, Col, Form, FormControl, Button, ButtonGroup, FormGroup, ControlLabel, Container } from 'reactstrap';
@@ -9,9 +9,24 @@ import moment from 'moment';
 
 import './profile.css'
 
-class ProfilePage extends React.Component {
+class ProfilePage extends Component {
+    componentWillMount() {
+    this.setState({ profile: {} });
+    const { userProfile, getProfile } = this.props.auth;
+    console.log(this.props.auth);
+    if (!userProfile) {
+      getProfile((err, profile) => {
+        this.setState({ profile });
+        console.log(this.state.profile);
+      });
+    } else {
+      this.setState({ profile: userProfile });
+    }
+  }
 
     render() {
+
+      const { profile } = this.state;
         return (
           <div>
             <div className="search-jumbotron">
@@ -30,7 +45,11 @@ class ProfilePage extends React.Component {
                 </ButtonGroup>
               </Col>
               <Col xs="12" sm="12" md="9" className="profile-info">
-
+                <h1>{profile.name}</h1>
+                    <img src={profile.picture} alt="profile" />
+                      <h3>{profile.nickname}</h3>
+                      <h3>{profile.email}</h3>
+                    <pre>{JSON.stringify(profile, null, 2)}</pre>
               </Col>
             </div>
           </div>

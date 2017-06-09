@@ -4,7 +4,8 @@ import App from './App';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom'
 
 import './index.css';
@@ -25,6 +26,7 @@ const auth = new Auth();
 
 const handleAuthentication = (nextState, replace) => {
   if (/access_token|id_token|error/.test(nextState.location.hash)) {
+    console.log('true');
     auth.handleAuthentication();
   }
 }
@@ -37,7 +39,13 @@ export const makeMainRoutes = () => {
           <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
           <Route path="/posts" render={(props) => <Post auth={auth} {...props} />} />
           <Route path="/search" render={(props) => <Search auth={auth} {...props} />} />
-          <Route path="/profile" render={(props) => <Profile auth={auth} {...props} />} />
+          <Route path="/profile" render={(props) => (
+            !auth.isAuthenticated() ? (
+              <Redirect to="/home"/>
+            ) : (
+              <Profile auth={auth} {...props} />
+              )
+            )} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
