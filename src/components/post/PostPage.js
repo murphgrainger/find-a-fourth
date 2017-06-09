@@ -7,7 +7,7 @@ import PreviewPost from './PreviewPost';
 
 import { API_URL } from './../../constants';
 
-import moment from 'moment'
+import moment from 'moment';
 
 class PostPage extends React.Component {
 
@@ -85,52 +85,18 @@ this.editPostForm = this.editPostForm.bind(this)
         })
       }
 
-      // ping() {
-      //   fetch(`${API_URL}/public`)
-      //     .then(res => res.json())
-      //     .then(data => this.setState({ message: data.message }));
-      // }
-
       postFunction() {
         const { authFetch } = this.props.auth;
-        console.log(this.props.auth);
         authFetch(`${API_URL}/posts`, { method: 'POST', mode: 'cors' , body: JSON.stringify(this.state)})
         .then(res => {
           return res;
         }).then(data => {
-          console.log(data);
           this.setState({ redirect: true })
         }).catch(err => {
           console.log(err)
         })
       }
-
-        // postFunction() {
-        //   let url = `${API_URL}/posts`;
-        //   fetch(url, {
-        //     method: 'POST',
-        //     mode: 'cors',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //       },
-        //     body: JSON.stringify(this.state)
-        //   }).then(res => {
-        //     return res.json()
-        //   }).then(data => {
-        //     this.setState({ redirect: true })
-        //   }).catch(err => {
-        //     console.log(err)
-        //   })
-        // }
 }
 
-function getUrl() {
-   if (window.location.host.indexOf('localhost') != -1) {
-       return 'http://localhost:4000';
-   } else {
-       return 'https://findafourth.herokuapp.com';
-   }
- }
 
 export default PostPage;
