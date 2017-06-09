@@ -46,10 +46,7 @@ class ProfilePage extends Component {
               </Col>
               <Col xs="12" sm="12" md="9" className="profile-info">
                 <h1>{profile.name}</h1>
-                    <img src={profile.picture} alt="profile" />
-                      <h3>{profile.nickname}</h3>
-                      <h3>{profile.email}</h3>
-                    <pre>{JSON.stringify(profile, null, 2)}</pre>
+                    <pre>{JSON.stringify(profile,null, 2)}</pre>
               </Col>
             </div>
           </div>

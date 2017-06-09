@@ -28,7 +28,6 @@ export default class Auth {
   }
 
   handleAuthentication() {
-    console.log('this function is running');
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
@@ -42,7 +41,6 @@ export default class Auth {
   }
 
   setSession(authResult) {
-    console.log('authResult': authResult);
     // Set the time that the access token will expire at
     let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
@@ -54,7 +52,6 @@ export default class Auth {
 
     getAccessToken() {
     const accessToken = localStorage.getItem('access_token');
-    console.log('accessToken': accessToken);
     if (!accessToken) {
       throw new Error('No access token found');
     }
@@ -65,7 +62,6 @@ export default class Auth {
     let accessToken = this.getAccessToken();
     this.auth0.client.userInfo(accessToken, (err, profile) => {
       if (profile) {
-        console.log(profile);
         this.userProfile = profile;
       }
       cb(err, profile);
