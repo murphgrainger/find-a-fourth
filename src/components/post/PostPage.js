@@ -5,12 +5,9 @@ import PostForm from './PostForm';
 import LocationForm from './LocationForm';
 import PreviewPost from './PreviewPost';
 
-
-import './post.css'
+import { API_URL } from './../../constants';
 
 import moment from 'moment'
-
-const SERVER_URL = getUrl()
 
 class PostPage extends React.Component {
 
@@ -88,8 +85,28 @@ this.editPostForm = this.editPostForm.bind(this)
         })
       }
 
+      // ping() {
+      //   fetch(`${API_URL}/public`)
+      //     .then(res => res.json())
+      //     .then(data => this.setState({ message: data.message }));
+      // }
+
+      // postFunction() {
+      //   const { authFetch } = this.props.auth;
+      //   console.log(this.props.auth);
+      //   authFetch(`${API_URL}/posts`, { method: 'POST', mode: 'cors' })
+      //   .then(res => {
+      //     return res.json()
+      //   }).then(data => {
+      //     console.log(data);
+      //     this.setState({ redirect: true })
+      //   }).catch(err => {
+      //     console.log(err)
+      //   })
+      // }
+
         postFunction() {
-          let url = `${SERVER_URL}/posts`;
+          let url = `${API_URL}/posts`;
           fetch(url, {
             method: 'POST',
             mode: 'cors',
