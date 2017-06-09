@@ -22,10 +22,11 @@ class ProfilePage extends React.Component {
             <div className="search-holder">
               <Col xs="12" sm="12" md="3" className="sidebar">
                 <ButtonGroup vertical>
-                  <Button className="nav-options">Profile</Button>
+                  <Button className="nav-options">Account Info</Button>
                   <Button className="nav-options">Location</Button>
                   <Button className="nav-options">Posts</Button>
                   <Button className="nav-options">Join Requests</Button>
+                  <Button className="nav-options" onClick={this.props.auth.logout}>Log Out</Button>
                 </ButtonGroup>
               </Col>
               <Col xs="12" sm="12" md="9" className="profile-info">
