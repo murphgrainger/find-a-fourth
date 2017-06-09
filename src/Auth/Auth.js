@@ -88,13 +88,13 @@ export default class Auth {
   }
 
   authFetch(url, options) {
+    console.log(options);
     const headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     };
 
     if (this.isAuthenticated()) {
-      console.log(true);
       headers['Authorization'] = 'Bearer ' + this.getAccessToken();
     }
 

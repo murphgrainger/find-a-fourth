@@ -7,12 +7,10 @@ import { CardDeck, Jumbotron, Container, Col } from 'reactstrap';
 import FilterRow from '../filter/FilterRow';
 import PostCard from './PostCard';
 
+import { API_URL } from './../../constants';
 
 import './search.css'
 import '../../App.css'
-
-
-const SERVER_URL= getUrl()
 
 
 class SearchPage extends React.Component {
@@ -90,26 +88,46 @@ onChildGenderChanged(newState) {
     // }
 
     getPosts() {
-      let url = `${SERVER_URL}/posts`;
-      console.log('url to post to:', url);
-      fetch(url, {
-        method: 'get',
-        mode: 'cors'
-      }).then(res => {
-        return res.json()
+      const { authFetch } = this.props.auth;
+      authFetch(`${API_URL}/posts`)
+      .then(res => {
+        console.log(res);
+        return res
       }).then(data => {
-        console.log(data);
         data.sort(function (left, right) {
         return moment.utc(left.date).diff(moment.utc(right.date))
-      });
+      })
       data.forEach(e => {
         let str = e.date;
         let date = moment(str);
         e.date = date.utc().format('ddd, MMM Do');
       })
         this.setState({ posts: [...this.state.posts, ...data] });
+      }).catch(err => {
+        console.log(err);
       })
-    }
+  }
+
+    // getPosts() {
+    //   let url = `${API_URL}/posts`;
+    //   fetch(url, {
+    //     method: 'get',
+    //     mode: 'cors'
+    //   }).then(res => {
+    //     return res.json()
+    //   }).then(data => {
+    //     console.log(data);
+    //     data.sort(function (left, right) {
+    //     return moment.utc(left.date).diff(moment.utc(right.date))
+    //   });
+    //   data.forEach(e => {
+    //     let str = e.date;
+    //     let date = moment(str);
+    //     e.date = date.utc().format('ddd, MMM Do');
+    //   })
+    //     this.setState({ posts: [...this.state.posts, ...data] });
+    //   })
+    // }
 
     renderPosts() {
       let filteredPosts = this.state.posts.filter((post) => {
@@ -131,14 +149,5 @@ onChildGenderChanged(newState) {
       ));
     }
 }
-
-function getUrl() {
-  console.log('current window location:', window.location.host);
-   if (window.location.host.indexOf('localhost') != -1) {
-       return 'http://localhost:4000';
-   } else {
-       return 'https://findafourth.herokuapp.com';
-   }
- }
 
 export default SearchPage;
