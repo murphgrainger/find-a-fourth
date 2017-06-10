@@ -87,6 +87,9 @@ this.editPostForm = this.editPostForm.bind(this)
 
       postFunction() {
         const { authFetch } = this.props.auth;
+        if (!this.props.auth.isAuthenticated()) {
+          this.props.auth.login()
+        } else {
         authFetch(`${API_URL}/posts`, { method: 'POST', mode: 'cors' , body: JSON.stringify(this.state)})
         .then(res => {
           return res;
@@ -96,6 +99,7 @@ this.editPostForm = this.editPostForm.bind(this)
           console.log(err)
         })
       }
+    }
 }
 
 
