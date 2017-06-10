@@ -9,6 +9,9 @@ import moment from 'moment';
 
 import './profile.css'
 
+import { API_URL } from './../../constants';
+
+
 class ProfilePage extends Component {
     componentWillMount() {
     this.setState({ profile: {} });
@@ -17,11 +20,34 @@ class ProfilePage extends Component {
     if (!userProfile) {
       getProfile((err, profile) => {
         this.setState({ profile });
-        console.log(this.state.profile);
+        this.getPreferences(this.state.profile.sub, this.state.profile.name)
       });
     } else {
       this.setState({ profile: userProfile });
     }
+  }
+
+  getPreferences(id, name) {
+    console.log(id, name);
+    let body = {
+      id: id,
+      name: name
+    }
+      const { authFetch } = this.props.auth;
+      if (!this.props.auth.isAuthenticated()) {
+        this.props.auth.login()
+      } else {
+      authFetch(`${API_URL}/users`, { method: 'POST', mode: 'cors' , body: JSON.stringify(body)})
+      .then(res => {
+        return res;
+      }).then(data => {
+        console.log(data);
+      }).catch(err => {
+        console.log(err)
+      })
+  }
+    //take id of user, and get associated preferences
+
   }
 
     render() {
@@ -46,6 +72,7 @@ class ProfilePage extends Component {
               </Col>
               <Col xs="12" sm="12" md="9" className="profile-info">
                 <h1>{profile.name}</h1>
+                <h6>{profile.sub}</h6>
                     <pre>{JSON.stringify(profile,null, 2)}</pre>
               </Col>
             </div>
@@ -53,5 +80,7 @@ class ProfilePage extends Component {
         );
     }
 }
+
+
 
 export default ProfilePage;
