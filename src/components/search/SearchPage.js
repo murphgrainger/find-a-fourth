@@ -145,6 +145,7 @@ onChildGenderChanged(newState) {
         <PostCard
           key={post.id}
           post={post}
+          {...this.props}
         />
       ));
     }

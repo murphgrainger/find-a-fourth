@@ -15,10 +15,14 @@ class JoinModal extends React.Component {
   }
 
   toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-    console.log('modal props', this.props.post);
+    console.log(this.props.auth);
+    if (this.props.auth.isAuthenticated()) {
+      this.setState({
+        modal: !this.state.modal
+      });
+    } else {
+      this.props.auth.login()
+    }
   }
 
   render() {

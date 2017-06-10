@@ -33,7 +33,7 @@ class PostCard extends Component {
           <p>{this.props.post.group_count}</p>
         </Col>
         <Col xs="12" md="2" className="centered-col">
-          <JoinModal post={this.props.post}/>
+          <JoinModal post={this.props.post} auth={this.props.auth}/>
         </Col>
         </CardBlock>
       </Card>
