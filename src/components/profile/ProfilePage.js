@@ -72,8 +72,9 @@ class ProfilePage extends Component {
               </Col>
               <Col xs="12" sm="12" md="9" className="profile-info">
                 <h1>{profile.name}</h1>
-                <h6>{profile.sub}</h6>
-                    <pre>{JSON.stringify(profile,null, 2)}</pre>
+                <p>Denver, CO</p>
+                <p>25yrs</p>
+                <p>11 H.I.</p>
               </Col>
             </div>
           </div>
