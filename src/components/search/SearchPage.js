@@ -111,8 +111,7 @@ onChildGenderChanged(newState) {
         let date = moment(str);
         e.date = date.utc().format('ddd, MMM Do');
       })
-        this.state.isFetching = false;
-        this.setState({ posts: [...this.state.posts, ...data] });
+        this.setState({ posts: [...this.state.posts, ...data], isFetching: false });
       }).catch(err => {
         console.log(err);
       })
