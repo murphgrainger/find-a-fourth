@@ -96,7 +96,6 @@ onChildGenderChanged(newState) {
     // }
 
     getPosts() {
-      setTimeout(2000);
       const { authFetch } = this.props.auth;
       authFetch(`${API_URL}/posts`)
       .then(res => {
