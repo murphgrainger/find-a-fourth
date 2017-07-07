@@ -1,6 +1,8 @@
 import React from 'react';
 import {Button} from 'reactstrap';
-import moment from 'moment'
+import moment from 'moment';
+import ReactLoading from 'react-loading';
+
 
 import { CardDeck, Jumbotron, Container, Col } from 'reactstrap';
 
@@ -72,7 +74,7 @@ onChildGenderChanged(newState) {
                 {!isFetching ? (
                      <div>{this.renderPosts()}</div>
                    ) : (
-                     <h1>Loading Posts</h1>
+                     <ReactLoading className="loading-wheel" type='spinningBubbles' color='#FFAF11' height='100' width='100' />
                    )}
               </div>
               </Col>
