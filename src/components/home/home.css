@@ -2,6 +2,10 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
+.main-div {
+  padding: 0;
+}
+
 .home-jumbotron {
   background-image: url(../../images/background-image.jpg);
   background-size: cover;
@@ -17,10 +21,14 @@ html, body {
   margin: 1rem;
 }
 
+.section-body {
+  padding: 0rem 5rem;
+}
+
 .section {
   width: 100%;
   margin: 0;
-  padding: 2rem;
+  padding: 2rem 0rem;
 }
 
 .section-break {
@@ -42,7 +50,22 @@ html, body {
   font-size: 1.25rem;
   padding-left: 1.5rem;
   font-weight: lighter;
+}
 
+.search-col {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 3rem;
+}
+
+.mockup-col {
+  display: flex;
+  justify-content: center;
+}
+
+.mockup {
+  width: 100%;
 }
 
 footer {

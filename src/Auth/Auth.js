@@ -88,7 +88,6 @@ export default class Auth {
   }
 
   authFetch(url, options) {
-    console.log(options);
     const headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json'

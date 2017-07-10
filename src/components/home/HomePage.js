@@ -12,7 +12,7 @@ import '../../App.css'
 class HomePage extends React.Component {
     render() {
         return (
-          <div>
+          <div className="main-div">
             <Jumbotron fluid className="home-jumbotron">
               <Container fluid>
                 <h1 className="display-3">Compatible Golf Groupings</h1>
@@ -23,8 +23,9 @@ class HomePage extends React.Component {
             </p>
               </Container>
             </Jumbotron>
+            <div className="section-body">
                 <Row className="section">
-                  <Col xs="12" md="8">
+                  <Col xs="12" md="6" className="search-col">
                     <h2 className="row-header">Search</h2>
                       <h6 className="row-description">Find an existing group based on search preferences.</h6>
                       <p className="bullet"><Icon name='filter'/>&nbsp; Handicap</p>
@@ -34,16 +35,20 @@ class HomePage extends React.Component {
                         <Button className="color-hit-orange" href="/search">Try It Now</Button>
                       </p>
                   </Col>
-                  <Col xs="12" md="4" className="img-col">
-                    <img src='https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=250'/>
+                  <Col xs="12" md="6" className="img-col" className="mockup-col">
+                    <div>
+                    <img className="mockup" src={require('../../images/search_mockup.jpg')}/>
+                    </div>
                   </Col>
                   </Row>
                   <hr className="section-break"/>
                   <Row className="section">
-                    <Col xs="12" md="4">
-                      <img src='https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=250'/>
+                    <Col xs="12" md='6' lg="5" className="mockup-col">
+                      <div>
+                        <img className="mockup" src={require('../../images/post_mockup.jpg')}/>
+                      </div>
                   </Col>
-                  <Col xs="12" md="8">
+                  <Col xs="12" md='6' lg="7" className="search-col">
                     <h2 className="row-header">Post</h2>
                     <h6 className="row-description">Post an existing group with pre-selected preferences for the remaining golfers who will join.</h6>
                     <p className="bullet"><Icon name='refresh'/>&nbsp; Preferences sync with golfer profiles and include handicap, age, and gender</p>
@@ -54,6 +59,7 @@ class HomePage extends React.Component {
                   </p>
                   </Col>
                 </Row>
+              </div>
             </div>
         );
     }

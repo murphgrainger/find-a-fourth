@@ -99,7 +99,6 @@ onChildGenderChanged(newState) {
       const { authFetch } = this.props.auth;
       authFetch(`${API_URL}/posts`)
       .then(res => {
-        console.log(res);
         return res
       }).then(data => {
         data.sort(function (left, right) {

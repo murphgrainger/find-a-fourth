@@ -47,7 +47,7 @@ class App extends Component {
       <div>
         <Navbar light color="faded" toggleable>
           <NavbarToggler right onClick={this.toggle} />
-            <NavbarBrand href="/home">Find a Fourth
+            <NavbarBrand href="/">Find a Fourth
             </NavbarBrand>
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
