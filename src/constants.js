@@ -14,6 +14,6 @@ function getUrl() {
     if (window.location.host.indexOf('localhost') != -1) {
         return 'http://localhost:3000';
     } else {
-        return 'https://find-a-fourth-1495660183624.firebaseapp.com/';
+        return 'https://find-a-fourth-1495660183624.firebaseapp.com';
     }
   }
