@@ -40,6 +40,9 @@ export const makeMainRoutes = () => {
           <Route exact path="/" render={(props) => <Home auth={auth} {...props} />} />
           <Route path="/posts" render={(props) => <Post auth={auth} {...props} />} />
           <Route path="/search" render={(props) => <Search auth={auth} {...props} />} />
+          <Route path="/home" render={(props) => (
+            <Redirect to="/"/>
+            )} />
           <Route path="/profile" render={(props) => (
             !auth.isAuthenticated() ? (
               <Redirect to="/"/>
