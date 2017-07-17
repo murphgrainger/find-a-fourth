@@ -40,8 +40,19 @@
   padding: 2.5rem;
 }
 
+.loading-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+}
+
 .loading-wheel {
   padding-top: 10%;
+}
+
+.loading-holder p {
+  padding-top: 2rem;
 }
 
 .post-card {

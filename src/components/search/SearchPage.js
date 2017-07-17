@@ -74,7 +74,10 @@ onChildGenderChanged(newState) {
                 {!isFetching ? (
                      <div>{this.renderPosts()}</div>
                    ) : (
+                     <div className="loading-holder">
                      <ReactLoading className="loading-wheel" type='spinningBubbles' color='#FFAF11' height='100' width='100' />
+                     <p>Loading Posts...</p>
+                     </div>
                    )}
               </div>
               </Col>
@@ -109,7 +112,7 @@ onChildGenderChanged(newState) {
         let date = moment(str);
         e.date = date.utc().format('ddd, MMM Do');
       })
-        this.setState({ posts: [...this.state.posts, ...data], isFetching: false });
+        this.setState({ posts: [...this.state.posts, ...data], isFetching: false});
       }).catch(err => {
         console.log(err);
       })
