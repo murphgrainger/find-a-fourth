@@ -35,7 +35,7 @@ export default class Auth {
         this.setSession(authResult);
         history.replace('/profile');
       } else if (err) {
-        history.replace('/home');
+        history.replace('/');
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -48,7 +48,6 @@ export default class Auth {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
-    // navigate to the home route
     history.replace('/profile');
   }
 
@@ -77,7 +76,7 @@ export default class Auth {
     localStorage.removeItem('expires_at');
     this.userProfile = null;
     // navigate to the home route
-    history.replace('/home');
+    history.replace('/');
   }
 
   isAuthenticated() {
