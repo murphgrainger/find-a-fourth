@@ -36,21 +36,23 @@ class JoinModal extends React.Component {
               <CardBlock className="card-column">
                 <p><Icon name='map-marker'/> &nbsp; {this.props.post.address}</p>
                 <Row>
-                <Col sm='12' md='7'>
+                <Col sm='12' md='5'>
                   <img src='http://via.placeholder.com/250x150'/>
                 </Col>
-                <Col sm='12' md='5'>
-                  <Col sm="12" md="6" className="preview-card-detail-col">
-                <small>Age Range</small>
-                <p>{this.props.post.age_min} - {this.props.post.age_max}</p>
+                  <Col sm="12" md="4" className="preview-card-detail-col">
+                    <small>Age Range</small>
+                    <p>{this.props.post.age_min} - {this.props.post.age_max}</p>
+                    <small>Handicap Range</small>
+                    <p>{this.props.post.handicap_min} - {this.props.post.handicap_max}</p>
+                  </Col>
+                <Col sm="12" md="3" className="preview-card-detail-col">
+                  <small>My Age</small>
+                  <p>25</p>
+                  <small>My Handicap</small>
+                  <p>11</p>
                 </Col>
-                  <Col sm="12" md="6" className="preview-card-detail-col">
-                <small>Handicap Range</small>
-                <p>{this.props.post.handicap_min} - {this.props.post.handicap_max}</p>
-                </Col>
-                </Col>
-                </Row>
-              </CardBlock>
+              </Row>
+            </CardBlock>
             </Card>
           </ModalBody>
           <ModalFooter>
