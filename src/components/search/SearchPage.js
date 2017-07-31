@@ -104,15 +104,20 @@ onChildGenderChanged(newState) {
       .then(res => {
         return res
       }).then(data => {
-        data.sort(function (left, right) {
+        let filteredDates = data.filter((post) => {
+          let date = post.date
+          let now = moment()
+          return now.diff(date) < 0;
+        })
+        filteredDates.sort(function (left, right) {
         return moment.utc(left.date).diff(moment.utc(right.date))
       })
-      data.forEach(e => {
+      filteredDates.forEach(e => {
         let str = e.date;
         let date = moment(str);
         e.date = date.utc().format('ddd, MMM Do');
       })
-        this.setState({ posts: [...this.state.posts, ...data], isFetching: false});
+        this.setState({ posts: [...this.state.posts, ...filteredDates], isFetching: false});
       }).catch(err => {
         console.log(err);
       })
