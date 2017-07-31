@@ -17,7 +17,7 @@ class JoinModal extends React.Component {
   toggle() {
    if (this.props.auth.isAuthenticated()) {
       this.setState({
-        modal: !this.state.modal
+        modal: !this.state.modal,
       });
     } else {
       this.props.auth.login()
@@ -47,9 +47,9 @@ class JoinModal extends React.Component {
                   </Col>
                 <Col sm="12" md="3" className="preview-card-detail-col">
                   <small>My Age</small>
-                  <p>25</p>
+                    <p>TBD</p>
                   <small>My Handicap</small>
-                  <p>11</p>
+                  <p>TBD</p>
                 </Col>
               </Row>
             </CardBlock>

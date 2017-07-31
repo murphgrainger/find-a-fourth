@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 
-import { Row, Col, Form, FormControl, Button, ButtonGroup, FormGroup, ControlLabel, Container } from 'reactstrap';
+import { Row, Col, Form, FormControl, Button, ButtonGroup, FormGroup, ControlLabel, Container,InputGroup, InputGroupAddon, Input } from 'reactstrap';
 
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
@@ -34,8 +34,6 @@ class ProfilePage extends Component {
     } else {
       this.getPosts(userProfile.sub);
       this.setState({ profile: userProfile })
-
-
     }
   }
 
@@ -103,7 +101,6 @@ class ProfilePage extends Component {
               </Col>
               <Col xs="12" sm="12" md="9" className="profile-info">
                 <h1>{profile.name}</h1>
-                <p>{profile.email}</p>
                 <div className="current-posts">
                   <h4>Current Posts</h4>
                   <div>{this.renderPosts()}</div>
