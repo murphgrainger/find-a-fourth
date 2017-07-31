@@ -24,6 +24,12 @@
   border-style: none!important;
 }
 
+.color-hit-orange:hover {
+  background: #475B5A!important;
+  background: #475B5A!important;
+  color: white!important;
+}
+
 .accent-color {
   background: #A3A9AA;
   border-style: none;

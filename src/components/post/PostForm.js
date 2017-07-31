@@ -85,7 +85,7 @@ class PostForm extends React.Component {
           <div className="form-holder">
             <Jumbotron fluid className="search-jumbotron">
               <Container fluid>
-                <h1 className="display-3">Create a Group</h1>
+                <h1 className="display-3">Create a Post</h1>
                 <p className="lead">Select preferences for players to join. Only players who match all preferences will be able to see your post.</p>
               </Container>
             </Jumbotron>

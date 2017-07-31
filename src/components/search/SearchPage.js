@@ -156,13 +156,20 @@ onChildGenderChanged(newState) {
           this.state.genderVal === 'any')
         })
 
+        if (filteredPosts.length > 0) {
       return filteredPosts.map(post => (
         <PostCard
           key={post.id}
           post={post}
           {...this.props}
         />
-      ));
+      ))
+    } else {
+      return <div className="no-posts">
+        <h4>No Posts Match Your Criteria</h4>
+        <Button className="color-hit-orange" href="/posts">Create a Post</Button>
+      </div>
+    }
     }
 }
 
