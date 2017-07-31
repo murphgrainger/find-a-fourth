@@ -4,7 +4,6 @@ html, body {
 
 .sidebar {
   background-color: #EFEFEF;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -21,5 +20,9 @@ html, body {
 }
 
 .profile-info {
-  margin: 2rem;
+  padding: 2rem;
+}
+
+.current-posts {
+  padding-top: 2rem;
 }

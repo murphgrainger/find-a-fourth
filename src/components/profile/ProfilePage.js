@@ -7,28 +7,39 @@ import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
 import moment from 'moment';
 
+import PostCard from '../search/PostCard'
+
 import './profile.css'
 
 import { API_URL } from './../../constants';
 
 
 class ProfilePage extends Component {
-    componentWillMount() {
+  constructor(props) {
+  super(props)
+  this.state = {
+    posts: []
+  }
+}
+
+  componentWillMount() {
     this.setState({ profile: {} });
     const { userProfile, getProfile } = this.props.auth;
-    console.log(this.props.auth);
     if (!userProfile) {
       getProfile((err, profile) => {
         this.setState({ profile });
         this.getPreferences(this.state.profile.sub, this.state.profile.name)
+        this.getPosts(this.state.profile.sub);
       });
     } else {
-      this.setState({ profile: userProfile });
+      this.getPosts(userProfile.sub);
+      this.setState({ profile: userProfile })
+
+
     }
   }
 
   getPreferences(id, name) {
-    console.log(id, name);
     let body = {
       id: id,
       name: name
@@ -41,7 +52,7 @@ class ProfilePage extends Component {
       .then(res => {
         return res;
       }).then(data => {
-        console.log(data);
+        console.log('preferences',data);
       }).catch(err => {
         console.log(err)
       })
@@ -50,9 +61,33 @@ class ProfilePage extends Component {
 
   }
 
-    render() {
+  getPosts(id) {
+    const { authFetch } = this.props.auth;
+    authFetch(`${API_URL}/posts/${id}`)
+    .then(res => {
+      return res
+    })
+    .then(posts => {
+      let filteredPosts = posts.filter((post) => {
+        let date = post.date
+        let now = moment()
+        return now.diff(date) < 0;
+      })
+      filteredPosts.sort(function (left, right) {
+      return moment.utc(left.date).diff(moment.utc(right.date))
+    })
+    filteredPosts.forEach(e => {
+      let str = e.date;
+      let date = moment(str);
+      e.date = date.utc().format('ddd, MMM Do');
+    })
+      this.setState({ posts: filteredPosts })
+    })
+  }
 
+    render() {
       const { profile } = this.state;
+      const { posts } = this.state;
         return (
           <div>
             <div className="search-jumbotron">
@@ -63,20 +98,33 @@ class ProfilePage extends Component {
             <div className="search-holder">
               <Col xs="12" sm="12" md="3" className="sidebar">
                 <ButtonGroup vertical>
-                  <Button className="nav-options">Account Info</Button>
-                  <Button className="nav-options">Location</Button>
-                  <Button className="nav-options">Posts</Button>
-                  <Button className="nav-options">Join Requests</Button>
                   <Button className="nav-options" onClick={this.props.auth.logout}>Log Out</Button>
                 </ButtonGroup>
               </Col>
               <Col xs="12" sm="12" md="9" className="profile-info">
                 <h1>{profile.name}</h1>
+                <p>{profile.email}</p>
+                <div className="current-posts">
+                  <h4>Current Posts</h4>
+                  <div>{this.renderPosts()}</div>
+                </div>
               </Col>
             </div>
           </div>
         );
     }
+
+renderPosts() {
+    if (this.state.posts.length > 0) {
+  return this.state.posts.map(post => (
+    <PostCard
+      key={post.id}
+      post={post}
+      {...this.props}
+      />
+    ))
+  }
+}
 }
 
 

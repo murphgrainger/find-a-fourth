@@ -86,18 +86,6 @@ onChildGenderChanged(newState) {
         );
     }
 
-    // getCourses() {
-    //   let url = `${LOCAL_URL}/swingAPI`
-    //   fetch(url, {
-    // 	method: 'get',
-    //   mode:'cors'
-    // }).then(response => {
-    // return response.json()
-    //   }).then(data => {
-    //   console.log(data)
-    //   })
-    // }
-
     getPosts() {
       const { authFetch } = this.props.auth;
       authFetch(`${API_URL}/posts`)
