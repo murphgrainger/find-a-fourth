@@ -46,7 +46,7 @@ class ProfilePage extends Component {
       if (!this.props.auth.isAuthenticated()) {
         this.props.auth.login()
       } else {
-      authFetch(`${API_URL}/users`, { method: 'POST', mode: 'cors' , body: JSON.stringify(body)})
+      authFetch(`${API_URL}/users`, { method: 'POST', mode: 'no-cors' , body: JSON.stringify(body)})
       .then(res => {
         return res;
       }).then(data => {
