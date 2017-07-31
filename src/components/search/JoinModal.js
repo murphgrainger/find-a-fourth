@@ -37,7 +37,7 @@ class JoinModal extends React.Component {
                 <p><Icon name='map-marker'/> &nbsp; {this.props.post.address}</p>
                 <Row>
                 <Col sm='12' md='5'>
-                  <img src='http://via.placeholder.com/250x150'/>
+                  <img id="map" src='http://www.wynstone.org/images/dynamic/getImage.gif?ID=100087'/>
                 </Col>
                   <Col sm="12" md="4" className="preview-card-detail-col">
                     <small>Age Range</small>
