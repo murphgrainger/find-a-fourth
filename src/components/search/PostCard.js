@@ -66,7 +66,8 @@ class PostCard extends Component {
           </CardBlock>
         </Card>
       )
-    };
+    }
+    ;
   }
 }
 
