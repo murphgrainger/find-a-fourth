@@ -93,6 +93,7 @@ export default class Auth {
     };
 
     if (this.isAuthenticated()) {
+      console.log('user is authenticated');
       headers['Authorization'] = 'Bearer ' + this.getAccessToken();
     }
 

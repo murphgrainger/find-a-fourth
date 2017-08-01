@@ -90,8 +90,10 @@ this.editPostForm = this.editPostForm.bind(this)
         if (!this.props.auth.isAuthenticated()) {
           this.props.auth.login()
         } else {
-        authFetch(`${API_URL}/posts`, { method: 'POST', mode: 'no-cors' , body: JSON.stringify(this.state)})
+          console.log(this.state);
+        authFetch(`${API_URL}/posts`, { method: 'POST', mode: 'cors' , body: JSON.stringify(this.state)})
         .then(res => {
+          console.log(res);
           return res;
         }).then(data => {
           this.setState({ redirect: true })
