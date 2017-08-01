@@ -95,6 +95,8 @@ this.editPostForm = this.editPostForm.bind(this)
         .then(res => {
           console.log(res);
           return res;
+        }).catch(err => {
+          console.log(err);
         }).then(data => {
           this.setState({ redirect: true })
         }).catch(err => {
