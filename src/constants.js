@@ -1,12 +1,13 @@
 export const API_URL = getUrl();
 export const HOST_URL = getHostUrl();
 
+const PROXY_URL = 'https://galvanize-cors-proxy.herokuapp.com/';
 
 function getUrl() {
    if (window.location.host.indexOf('localhost') != -1) {
        return 'http://localhost:4000';
    } else {
-       return 'https://findafourth.herokuapp.com';
+       return `${PROXY_URL}https://findafourth.herokuapp.com`;
    }
  }
 

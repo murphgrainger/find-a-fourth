@@ -50,6 +50,8 @@ class ProfilePage extends Component {
       .then(res => {
         console.log(res);
         return res;
+      }).catch(err => {
+        console.log(err);
       }).then(data => {
         console.log('preferences',data);
       }).catch(err => {
@@ -62,6 +64,7 @@ class ProfilePage extends Component {
 
   getPosts(id) {
     const { authFetch } = this.props.auth;
+    console.log('API_URL:', API_URL);
     authFetch(`${API_URL}/posts/${id}`)
     .then(res => {
       return res
