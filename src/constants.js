@@ -1,9 +1,10 @@
 export const API_URL = getUrl();
 export const HOST_URL = getHostUrl();
 
-const PROXY_URL = 'https://galvanize-cors-proxy.herokuapp.com/';
 
 function getUrl() {
+  const PROXY_URL = 'https://galvanize-cors-proxy.herokuapp.com/';
+  console.log(PROXY_URL);
    if (window.location.host.indexOf('localhost') != -1) {
        return 'http://localhost:4000';
    } else {
